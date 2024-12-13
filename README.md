@@ -12,7 +12,7 @@ Two Jupyter notebooks demonstrate the application of this method:
 
 2. `Li_novelty.ipynb`: Applies the method to analyze lithium-containing compounds from the GNOME dataset relative to known materials in the Materials Project database.
 
-**NOTE** that the MP and GNOME materials are not provided with this repository, but can be downloaded through the `get_mp_data.py` file.
+**NOTE** that the MP materials are not provided with this repository, but can be downloaded through the `get_mp_data.py` file.
 
 The core functionality is provided through three main modules:
 
