@@ -87,7 +87,6 @@ ipython_config.py
 
 # datasets
 MP_Li_dataset/
-GNOME_Li_dataset/
 
 .pdm.toml
 
