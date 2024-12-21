@@ -23,6 +23,9 @@ The core functionality is provided through three main modules:
 ## Citation
 
 ```
-Falkowski, A. R., & Sparks, T. D. (2024). Mutual Information Informed Novelty Estimation of
-Materials Along Chemical and Structural Axes.
+@article{falkowski2024mutual,
+  title={Mutual Information Informed Novelty Estimation of Materials Along Chemical and Structural Axes},
+  author={Falkowski, Andrew and Sparks, Taylor},
+  year={2024}
+}
 ```
