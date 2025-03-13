@@ -6,6 +6,7 @@ from scipy.spatial.distance import pdist, squareform
 from mi_density import *
 
 import matplotlib.pyplot as plt
+import matplotlib.colors as mcolors
 
 plt.style.use("ggplot")
 plt.rcParams["font.size"] = 10
@@ -15,6 +16,20 @@ plt.rcParams["font.family"] = "monospace"
 plt.rcParams["axes.prop_cycle"] = plt.cycler(
     color=["#348ABD", "#A60628", "#7A68A6", "#467821", "#D95204", "#D982BA"]
 )
+
+colors = [
+    "#348abd",  # Start color
+    "#4c7dc1",
+    "#696ebd",
+    "#865baf",
+    "#9c4497",
+    "#aa2a76",
+    "#ae0d50",
+    "#a60628",  # End color
+]
+n_bins = 256
+cmap = mcolors.LinearSegmentedColormap.from_list("custom", colors, N=n_bins)
+
 
 SAVE = True
 FIGSIZE = (3.5, 3.5)
