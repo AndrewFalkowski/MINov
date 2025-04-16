@@ -107,7 +107,7 @@ def calculate_fingerprints(structures, preset="ops", n_jobs=-1):
 
     # Process structures in parallel
     results = Parallel(n_jobs=n_jobs, backend="loky")(
-        delayed(process_structure)(idx, structure, preset=preset, verbose=False)
+        delayed(process_structure)(idx, structure, preset=preset, verbose=True)
         for idx, structure in iterator
     )
 

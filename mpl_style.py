@@ -1,5 +1,4 @@
 import matplotlib as mpl
-import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 
 
@@ -15,7 +14,7 @@ def apply_style():
             # Font
             # "font.family": "sans-serif",
             # "font.sans-serif": font_name,
-            "font.size": 9,
+            # "font.size": 9,
             # Axes
             "axes.titlesize": 10,
             "axes.labelsize": 9,
@@ -47,8 +46,10 @@ def apply_style():
             "legend.framealpha": 1.0,
             "legend.edgecolor": "black",
             "legend.loc": "best",
+            # "legend.handletextpad": 0.005,
             "legend.handletextpad": 0.05,
-            "legend.borderaxespad": 0.65,
+            # "legend.borderaxespad": 0.75
+            "legend.borderaxespad": 1.0,
             "legend.handlelength": 1.25,
             # Saving figures
             "savefig.dpi": 300,
@@ -59,52 +60,4 @@ def apply_style():
     return
 
 
-fpath = Path("/Users/andrewf/Library/Fonts/dejavu-sans.condensed.ttf")
-mpl.font_manager.fontManager.addfont(fpath)
-if fpath.exists():
-    # Add the font to the font manager
-    mpl.font_manager.fontManager.addfont(str(fpath))
-
-    # Create font properties object
-    prop = mpl.font_manager.FontProperties(fname=str(fpath))
-    font_name = prop.get_name()
-
-    # Set as default
-    plt.rcParams["font.family"] = "sans-serif"
-    plt.rcParams["font.sans-serif"] = [font_name]
-
-    # Set specific text properties
-    # For newer matplotlib versions
-    mpl.rc("font", **{"family": "sans-serif", "sans-serif": [font_name]})
-
-    def apply_condensed_font(fig):
-        for ax in fig.axes:
-            # Apply to all text elements on the axes
-            for text in ax.texts:
-                text.set_fontproperties(prop)
-
-            # Apply to title and axis labels
-            ax.title.set_fontproperties(prop)
-            ax.xaxis.label.set_fontproperties(prop)
-            ax.yaxis.label.set_fontproperties(prop)
-
-            # Apply to tick labels
-            for label in ax.get_xticklabels():
-                label.set_fontproperties(prop)
-            for label in ax.get_yticklabels():
-                label.set_fontproperties(prop)
-
-            # Apply to legend if it exists
-            legend = ax.get_legend()
-            if legend:
-                # Apply to legend title
-                if legend.get_title():
-                    legend.get_title().set_fontproperties(prop)
-
-                # Apply to legend text
-                for text in legend.get_texts():
-                    text.set_fontproperties(prop)
-
-
-if __name__ == "__main__":
-    apply_style()
+apply_style()
