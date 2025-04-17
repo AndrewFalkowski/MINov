@@ -11,7 +11,7 @@ with open("/Users/andrewf/Desktop/APIKEY.txt", "r") as file:
     key = file.read().strip()
 
 # Directory containing your structure files
-input_directory = "perovskite_rex"  # Update this to your directory path
+input_directory = "GNOME_Li_dataset"  # Update this to your directory path
 file_pattern = "*.cif"  # Update if you have different file extensions
 
 # Get list of all cif files in the directory
@@ -22,11 +22,6 @@ not_found_materials = []
 high_energy_materials = []
 
 # Define space group to crystal system mapping for special cases
-crystal_system_prefixes = {
-    221: "[cub]",  # Cubic
-    140: "[tet]",  # Tetragonal
-    62: "[ortho]",  # Orthorhombic
-}
 
 # Process each file
 for cif_path in cif_files:
@@ -115,12 +110,8 @@ for cif_path in cif_files:
             )
 
         # Add crystal system prefix if spacegroup is in our special cases
-        prefix = ""
-        if spacegroup_number in crystal_system_prefixes:
-            prefix = crystal_system_prefixes[spacegroup_number]
-
         # Create new filename with MP ID and appropriate prefix
-        new_filename = f"{prefix}{match.formula_pretty}_{match.material_id}.cif"
+        new_filename = f"{match.formula_pretty}_{match.material_id}.cif"
         new_path = os.path.join(input_directory, new_filename)
 
         # Rename the file
