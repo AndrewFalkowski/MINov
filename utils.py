@@ -1,5 +1,4 @@
 import numpy as np
-from tqdm import tqdm
 from fractions import Fraction
 from functools import reduce
 from math import gcd

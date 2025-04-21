@@ -1,6 +1,9 @@
 # mac nonsense
 **/.DS_Store
 
+# old files and code that I might want to reference later
+code_graveyard.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -70,6 +70,7 @@ def compute_MI_density(distance_matrix, cutoff, mi_profile):
 
     Returns:
         np.ndarray : Density values for each point in the distance matrix
+        np.ndarray : Weight function for the MI profile
     """
 
     # Create interpolation space
