@@ -1,0 +1,37 @@
+# generated using pymatgen
+data_LiH3C2O5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.60599551
+_cell_length_b   5.19124539
+_cell_length_c   6.16065859
+_cell_angle_alpha   79.13632276
+_cell_angle_beta   84.95054187
+_cell_angle_gamma   77.60582557
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiH3C2O5
+_chemical_formula_sum   'Li1 H3 C2 O5'
+_cell_volume   110.48263630
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.92986500  0.13439700  0.29883400  1
+  H  H1  1  0.63286700  0.35291500  0.73085600  1
+  H  H2  1  0.30951900  0.49636700  0.34911700  1
+  H  H3  1  0.36468700  0.45355300  0.10295200  1
+  C  C4  1  0.99233500  0.99668000  0.80353700  1
+  C  C5  1  0.21060200  0.75990900  0.69154800  1
+  O  O6  1  0.00750800  0.99765600  0.00202300  1
+  O  O7  1  0.79791900  0.18615700  0.65892200  1
+  O  O8  1  0.17528800  0.77555800  0.48863400  1
+  O  O9  1  0.41241300  0.56751500  0.81869900  1
+  O  O10  1  0.36620600  0.35315300  0.25700800  1

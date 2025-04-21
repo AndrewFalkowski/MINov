@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_Li3FeN2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.75439980
+_cell_length_b   4.81862954
+_cell_length_c   5.81750324
+_cell_angle_alpha   113.22987334
+_cell_angle_beta   114.11874331
+_cell_angle_gamma   90.00000833
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li3FeN2
+_chemical_formula_sum   'Li6 Fe2 N4'
+_cell_volume   109.69728004
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.74935232  0.50000000  -0.00000000  1
+  Li  Li1  1  0.25064768  0.50000000  0.00000000  1
+  Li  Li2  1  0.49371570  0.74155456  0.48425139  1
+  Li  Li3  1  0.00946531  0.25844544  0.51574861  1
+  Li  Li4  1  0.99053469  0.74155456  0.48425139  1
+  Li  Li5  1  0.50628430  0.25844544  0.51574861  1
+  Fe  Fe6  1  0.74622573  -0.00000000  -0.00000000  1
+  Fe  Fe7  1  0.25377427  0.00000000  0.00000000  1
+  N  N8  1  0.88662460  0.10986546  0.77325019  1
+  N  N9  1  0.61696869  0.34337149  0.23393637  1
+  N  N10  1  0.11337540  0.89013454  0.22674981  1
+  N  N11  1  0.38303131  0.65662851  0.76606363  1

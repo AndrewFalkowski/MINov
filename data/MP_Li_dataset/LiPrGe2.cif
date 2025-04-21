@@ -1,0 +1,42 @@
+# generated using pymatgen
+data_LiPrGe2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   7.86207601
+_cell_length_b   3.96721429
+_cell_length_c   10.74121618
+_cell_angle_alpha   89.99990097
+_cell_angle_beta   90.00064311
+_cell_angle_gamma   89.99577689
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiPrGe2
+_chemical_formula_sum   'Li4 Pr4 Ge8'
+_cell_volume   335.02433526
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.50832764  0.75047544  0.11012057  1
+  Li  Li1  1  0.00826771  0.74982189  0.38988835  1
+  Li  Li2  1  0.99165895  0.24959718  0.61012390  1
+  Li  Li3  1  0.49176425  0.24993308  0.88991980  1
+  Pr  Pr4  1  0.13930840  0.24986267  0.13486725  1
+  Pr  Pr5  1  0.63931034  0.24998014  0.36513113  1
+  Pr  Pr6  1  0.36070052  0.75018956  0.63481255  1
+  Pr  Pr7  1  0.86069791  0.75003490  0.86518276  1
+  Ge  Ge8  1  0.72080875  0.24977556  0.06898311  1
+  Ge  Ge9  1  0.84223096  0.74970666  0.18279734  1
+  Ge  Ge10  1  0.34223063  0.75001690  0.31719312  1
+  Ge  Ge11  1  0.22080610  0.25000860  0.43099361  1
+  Ge  Ge12  1  0.77918319  0.75024672  0.56914492  1
+  Ge  Ge13  1  0.65776822  0.25031760  0.68289180  1
+  Ge  Ge14  1  0.15776743  0.25005253  0.81710534  1
+  Ge  Ge15  1  0.27917001  0.74999758  0.93084445  1

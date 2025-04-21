@@ -1,0 +1,37 @@
+# generated using pymatgen
+data_Li8Pb3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.73950017
+_cell_length_b   4.72445560
+_cell_length_c   10.97338467
+_cell_angle_alpha   102.13495598
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   120.10540233
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li8Pb3
+_chemical_formula_sum   'Li8 Pb3'
+_cell_volume   206.19469459
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.91140648  0.82281196  0.73560175  1
+  Li  Li1  1  0.08859352  0.17718804  0.26439825  1
+  Li  Li2  1  0.82086799  0.64173698  0.46516320  1
+  Li  Li3  1  0.36318469  0.72636738  0.08701499  1
+  Li  Li4  1  0.63681531  0.27363262  0.91298501  1
+  Li  Li5  1  0.27151490  0.54302979  0.81878705  1
+  Li  Li6  1  0.72848510  0.45697021  0.18121295  1
+  Li  Li7  1  0.17913201  0.35826302  0.53483680  1
+  Pb  Pb8  1  0.54686675  0.09373350  0.64189681  1
+  Pb  Pb9  1  0.45313325  0.90626650  0.35810319  1
+  Pb  Pb10  1  0.00000000  0.00000000  -0.00000000  1

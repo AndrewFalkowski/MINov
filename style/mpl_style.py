@@ -51,8 +51,9 @@ def set_custom_props():
             "legend.framealpha": 1.0,
             "legend.edgecolor": "black",
             "legend.loc": "best",
-            "legend.borderaxespad": 1.0,
-            "legend.handlelength": 1.25,
+            "legend.borderaxespad": 0.85,
+            "legend.handletextpad": 0.5,
+            "legend.handlelength": 1.0,
             # Saving figures
             "savefig.dpi": 300,
             "savefig.format": "png",
