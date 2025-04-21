@@ -1,0 +1,206 @@
+##############################################################################
+#                                                                            #
+# Ir-O-Sr          # SrIrO3 mon1                                   # 1800005 #
+#                                                                            #
+##############################################################################
+#                                                                            #
+#                           Pearson's Crystal Data                           #
+#      Crystal Structure Database for Inorganic Compounds (on DVD)           #
+#                              Release 2018/19                               #
+#                  Editors: Pierre Villars and Karin Cenzual                 #
+#                                                                            #
+#   Copyright (c) ASM International & Material Phases Data System (MPDS),    #
+# Switzerland & National Institute for Materials Science (NIMS), Japan, 2018 #
+#                   All rights reserved. Version 2018.08                     #
+#                                                                            #
+#   This copy of Pearson's Crystal Data is licensed to:                      #
+#   University of Alberta, Chemistry Department, 1-5 Installations License         #
+#                                                                            #
+##############################################################################
+
+data_1800005
+_audit_creation_date                     2024-10-29
+_audit_creation_method
+;
+Pearson's Crystal Data browser
+;
+#_database_code_PCD                      1800005
+
+# Entry summary
+
+_chemical_formula_structural             'Sr Ir O~3~'
+_chemical_formula_sum                    'Ir O3 Sr'
+_chemical_name_mineral                   ?
+_chemical_compound_source                ?
+_chemical_name_structure_type            BaIrO~3~,mS60,15
+_chemical_formula_weight                 327.8
+
+# Bibliographic data
+
+_publ_section_title
+'Structure and Properties of the High and Low Pressure Forms of SrIrO~3~'     
+_journal_coden_ASTM                      JSSCBI
+_journal_name_full                       'J. Solid State Chem.'
+_journal_year                            1971
+_journal_volume                          3
+_journal_page_first                      174
+_journal_page_last                       179
+_journal_language                        English
+loop_
+ _publ_author_name
+ _publ_author_address
+'Longo J.M.'
+;
+Esso Research and Engineering Co.
+Linden
+U.S.A. New Jersey
+;
+'Kafalas J.A.'
+;
+Massachusetts Institute of Technology (MIT)
+Lincoln Laboratory
+Lexington
+U.S.A. Massachusetts
+;
+'Arnott R.J.'
+;
+Brown University
+Department of Engineering
+Providence
+U.S.A. Rhode Island
+;
+
+# Standardized crystallographic data
+
+_cell_length_a                           5.604
+_cell_length_b                           9.618
+_cell_length_c                           14.174
+_cell_angle_alpha                        90
+_cell_angle_beta                         93.26
+_cell_angle_gamma                        90
+_cell_volume                             762.73
+_cell_formula_units_Z                    12
+_space_group_IT_number                   15
+_space_group_name_H-M_alt                'C 1 2/c 1'
+loop_
+ _space_group_symop_id
+ _space_group_symop_operation_xyz
+ 1 'x, y, z'
+ 2 '-x, -y, -z'
+ 3 '-x, y, 1/2-z'
+ 4 'x, -y, 1/2+z'
+ 5 '1/2+x, 1/2+y, z'
+ 6 '1/2-x, 1/2-y, -z'
+ 7 '1/2-x, 1/2+y, 1/2-z'
+ 8 '1/2+x, 1/2-y, 1/2+z'
+loop_
+ _atom_type_symbol
+ Ir
+ O
+ Sr
+loop_
+ _atom_site_label
+ _atom_site_type_symbol
+ _atom_site_symmetry_multiplicity
+ _atom_site_Wyckoff_symbol
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+ Ir2 Ir 8 f 0.025 0.342 0.154 1
+ O4 O 8 f 0.003 0.17 0.084 1
+ O2 O 8 f 0.224 0.265 0.26 1
+ O3 O 8 f 0.27 0.073 0.583 1
+ O5 O 8 f 0.26 0.415 0.08 1
+ Sr2 Sr 8 f 0.5 0.182 0.103 1
+ Sr1 Sr 4 e 0 0.016 0.25 1
+ O1 O 4 e 0 0.492 0.25 1
+ Ir1 Ir 4 a 0 0 0 1
+
+
+_exptl_crystal_colour                    ?
+_exptl_crystal_density_meas              7.6(1)
+_exptl_crystal_density_diffrn            8.57
+_cell_measurement_temperature            ?
+_cell_measurement_radiation              'X-rays, Cu Ka'
+_cell_measurement_reflns_used            25
+_diffrn_ambient_temperature              ?
+_diffrn_measurement_device               diffractometer
+_diffrn_measurement_device_type          Norelco
+_diffrn_radiation_type                   'X-rays, Cu Ka'
+_diffrn_reflns_number                    ?
+_exptl_absorpt_coefficient_mu            ?
+_exptl_absorpt_correction_type           ?
+_computing_structure_solution
+'starting values derived from related structure'                              
+_refine_ls_number_parameters             ?
+_refine_ls_number_reflns                 ?
+_refine_ls_R_factor_gt                   ?
+_refine_ls_wR_factor_gt                  ?
+_pd_proc_ls_proof_R_factor               ?
+_pd_proc_ls_proof_wR_factor              ?
+_refine_ls_R_I_factor                    0.10
+
+# Published diffraction lines
+
+loop_
+ _refln_index_h
+ _refln_index_k
+ _refln_index_l
+ _refln_d_spacing
+ _refln_intensity_meas
+ 0 0 2 70.8 0.4
+ 1 1 -1 46.5 7.5
+ 0 2 1 45.3 24.6
+ 1 1 -2 40.9 2.9
+ 0 2 2 39.8 4.8
+ 1 1 2 39.1 9.2
+ 0 0 4 35.4 1.8
+ 1 1 -3 34.6 0.2
+ 0 2 3 33.6 0.2
+ 1 1 3 32.9 2.0
+ 1 1 -4 29.26 22.7
+ 0 2 4 28.5 23.2
+ 2 0 0 27.88 100.0
+ 1 3 -1 27.48 0.2
+ 1 3 1 27.14 0.3
+ 2 0 -2 26.56 0.2
+ 1 3 -2 26.17 0.2
+ 2 0 2 25.54 0.1
+ 1 1 -5 24.97 4.9
+ 0 2 5 24.38 6.4
+ 0 4 0 23.9 10.0
+ 0 4 1 23.6 2.6
+ 0 4 2 22.6 2.5
+ 1 3 -4 22.18 2.0
+ 1 3 4 21.58 1.0
+ 0 4 3 21.4 2.0
+ 0 2 6 21.11 1.6
+ 2 2 -4 20.04 8.9
+ 0 4 4 19.88 10.4
+ 1 3 5 19.53 9.7
+ 1 1 -7 18.89 1.5
+ 2 2 -5 18.86 4.3
+ 0 2 7 18.6 3.6
+ 1 1 7 18.3 9.2
+ 1 5 -1 17.97 7.5
+ 2 4 -2 17.7 7.1
+ 2 0 6 17.5 5.3
+ 1 1 -8 16.88 1.3
+ 2 4 3 16.76 1.3
+ 3 1 -4 16.6 5.6
+ 2 2 6 16.46 4.5
+ 1 1 8 16.33 5.0
+ 1 3 7 16.13 11.0
+ 1 5 4 16 11.0
+ 3 3 1 15.91 6.0
+ 3 1 -5 15.78 1.8
+ 0 6 2 15.6 1.4
+ 3 3 -3 15.4 5.0
+ 0 6 3 15.13 10.0
+ 3 3 3 14.95 2.6
+ 1 1 9 14.74 2.8
+ 2 2 -8 14.59 2.0
+
+# End of data set 1800005
+

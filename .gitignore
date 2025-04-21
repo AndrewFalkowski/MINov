@@ -86,7 +86,7 @@ profile_default/
 ipython_config.py
 
 # datasets
-# MP_Li_dataset/
+MP_Li_dataset/
 
 .pdm.toml
 

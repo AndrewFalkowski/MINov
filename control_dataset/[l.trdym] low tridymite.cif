@@ -1,0 +1,54 @@
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+data_VESTA_phase_1
+
+_chemical_name_common                  'O2 Si'
+_cell_length_a                         5.007(2)
+_cell_length_b                         8.599(2)
+_cell_length_c                         8.2202(16)
+_cell_angle_alpha                      90.000000
+_cell_angle_beta                       91.57(2)
+_cell_angle_gamma                      90.000000
+_cell_volume                           353.789413
+_space_group_name_H-M_alt              'F 1'
+_space_group_IT_number                 1
+
+loop_
+_space_group_symop_operation_xyz
+   'x, y, z'
+   'x, y+1/2, z+1/2'
+   'x+1/2, y, z+1/2'
+   'x+1/2, y+1/2, z'
+
+loop_
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_U_iso_or_equiv
+   _atom_site_type_symbol
+   Si1        1.0     0.089528     0.30758(3)   0.211540    Uani  0.012518 Si
+   Si2        1.0     0.09056(9)   0.64149(3)   0.33670(5)  Uani  0.012422 Si
+   O1         1.0     0.3001(2)    0.75222(11)  0.25668(13) Uani  0.024660 O
+   O2         1.0     0.1603(2)    0.46589(9)   0.30179(12) Uani  0.022432 O
+   O3         1.0     0.3019(2)    0.18034(9)   0.26440(14) Uani  0.020060 O
+   O4         1.0     0.0976(4)    0.33257(12)  0.02435(14) Uani  0.028795 O
+
+loop_
+   _atom_site_aniso_label
+   _atom_site_aniso_U_11
+   _atom_site_aniso_U_22
+   _atom_site_aniso_U_33
+   _atom_site_aniso_U_12
+   _atom_site_aniso_U_13
+   _atom_site_aniso_U_23
+   Si1	 0.01151  0.01154  0.01448  0.00027 -0.00007  0.00135
+   Si2	 0.01143  0.01149  0.01434  0.00041  0.00025 -0.00112
+   O1	 0.01430  0.02340  0.03650 -0.00170  0.00470  0.00770
+   O2	 0.02150  0.01360  0.03180  0.00320 -0.00650 -0.00560
+   O3	 0.01240  0.01580  0.03180  0.00130 -0.00270  0.00030
+   O4	 0.03640  0.03480  0.01520 -0.00170  0.00100  0.00530

@@ -1,0 +1,39 @@
+
+#======================================================================
+# CRYSTAL DATA
+#----------------------------------------------------------------------
+data_VESTA_phase_1
+
+_chemical_name_common                  'O2 Si'
+_cell_length_a                         8.756000
+_cell_length_b                         5.010800
+_cell_length_c                         8.215300
+_cell_angle_alpha                      90.000000
+_cell_angle_beta                       90.282501
+_cell_angle_gamma                      90.000000
+_cell_volume                           360.438287
+_space_group_name_H-M_alt              'Custom'
+_space_group_IT_number                 1
+
+loop_
+_space_group_symop_operation_xyz
+   'x, y, z'
+   'x+1/2, y+1/2, z'
+   '-x, -y, z+1/2'
+   '-x+1/2, -y+1/2, z+1/2'
+
+loop_
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_U_iso_or_equiv
+   _atom_site_type_symbol
+   Si1        1.0     0.175900     0.548900     0.684500    Uiso  0.061500 Si
+   Si2        1.0     0.157200     0.446500     0.309800    Uiso  0.047600 Si
+   O1         1.0     0.335000    -0.006300    -0.003100    Uiso  0.095900 O
+   O2         1.0    -0.013000     0.425500     0.253700    Uiso  0.100900 O
+   O3         1.0     0.257600     0.321600     0.775500    Uiso  0.116500 O
+   O4         1.0     0.241900     0.673800     0.214700    Uiso  0.114800 O
