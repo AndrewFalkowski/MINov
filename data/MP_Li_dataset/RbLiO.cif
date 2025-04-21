@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_RbLiO
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   3.50250941
+_cell_length_b   6.52848974
+_cell_length_c   8.86049832
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   RbLiO
+_chemical_formula_sum   'Rb4 Li4 O4'
+_cell_volume   202.60501182
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Rb  Rb0  1  0.25000000  0.49709059  0.32119699  1
+  Rb  Rb1  1  0.75000000  0.50290941  0.67880301  1
+  Rb  Rb2  1  0.25000000  0.99709059  0.17880301  1
+  Rb  Rb3  1  0.75000000  0.00290941  0.82119699  1
+  Li  Li4  1  0.75000000  0.39716594  0.99698148  1
+  Li  Li5  1  0.25000000  0.10283406  0.49698148  1
+  Li  Li6  1  0.75000000  0.89716594  0.50301852  1
+  Li  Li7  1  0.25000000  0.60283406  0.00301852  1
+  O  O8  1  0.25000000  0.31280069  0.95248629  1
+  O  O9  1  0.75000000  0.18719931  0.45248629  1
+  O  O10  1  0.25000000  0.81280069  0.54751371  1
+  O  O11  1  0.75000000  0.68719931  0.04751371  1

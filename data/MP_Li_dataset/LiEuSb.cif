@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_LiEuSb
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.78523270
+_cell_length_b   7.85984669
+_cell_length_c   8.35881432
+_cell_angle_alpha   90.00000000
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiEuSb
+_chemical_formula_sum   'Li4 Eu4 Sb4'
+_cell_volume   314.38499868
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.75000000  0.33708820  0.57671515  1
+  Li  Li1  1  0.75000000  0.83708820  0.92328285  1
+  Li  Li2  1  0.25000000  0.66291180  0.42328485  1
+  Li  Li3  1  0.25000000  0.16291180  0.07671715  1
+  Eu  Eu4  1  0.75000000  0.49633236  0.21048863  1
+  Eu  Eu5  1  0.75000000  0.99633136  0.28951237  1
+  Eu  Eu6  1  0.25000000  0.50366764  0.78951137  1
+  Eu  Eu7  1  0.25000000  0.00366864  0.71048763  1
+  Sb  Sb8  1  0.75000000  0.22553245  0.90722531  1
+  Sb  Sb9  1  0.75000000  0.72553245  0.59277569  1
+  Sb  Sb10  1  0.25000000  0.77446755  0.09277469  1
+  Sb  Sb11  1  0.25000000  0.27446755  0.40722431  1

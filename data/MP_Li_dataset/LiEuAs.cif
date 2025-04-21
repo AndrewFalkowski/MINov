@@ -1,0 +1,38 @@
+# generated using pymatgen
+data_LiEuAs
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.44938851
+_cell_length_b   7.45264293
+_cell_length_c   7.94679720
+_cell_angle_alpha   89.99396744
+_cell_angle_beta   90.00000000
+_cell_angle_gamma   90.00000000
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiEuAs
+_chemical_formula_sum   'Li4 Eu4 As4'
+_cell_volume   263.51344007
+_cell_formula_units_Z   4
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.25000000  0.15694170  0.92839012  1
+  Li  Li1  1  0.25000000  0.65682229  0.57163107  1
+  Li  Li2  1  0.75000000  0.84305830  0.07160988  1
+  Li  Li3  1  0.75000000  0.34317771  0.42836893  1
+  Eu  Eu4  1  0.25000000  0.00921249  0.29619684  1
+  Eu  Eu5  1  0.25000000  0.50903031  0.20410385  1
+  Eu  Eu6  1  0.75000000  0.99078751  0.70380316  1
+  Eu  Eu7  1  0.75000000  0.49096969  0.79589615  1
+  As  As8  1  0.25000000  0.27426247  0.59613120  1
+  As  As9  1  0.25000000  0.77449828  0.90388805  1
+  As  As10  1  0.75000000  0.72573753  0.40386880  1
+  As  As11  1  0.75000000  0.22550172  0.09611195  1

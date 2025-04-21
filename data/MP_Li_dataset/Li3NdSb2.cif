@@ -1,0 +1,32 @@
+# generated using pymatgen
+data_Li3NdSb2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.59322462
+_cell_length_b   4.59317186
+_cell_length_c   7.34569956
+_cell_angle_alpha   90.00004887
+_cell_angle_beta   90.01720032
+_cell_angle_gamma   119.99972158
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li3NdSb2
+_chemical_formula_sum   'Li3 Nd1 Sb2'
+_cell_volume   134.21324144
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.00000000  0.00000000  0.50000000  1
+  Li  Li1  1  0.66640714  0.33320376  0.35334281  1
+  Li  Li2  1  0.33359286  0.66679624  0.64665719  1
+  Nd  Nd3  1  0.00000000  0.00000000  -0.00000000  1
+  Sb  Sb4  1  0.66680687  0.33340397  0.74452807  1
+  Sb  Sb5  1  0.33319313  0.66659603  0.25547193  1

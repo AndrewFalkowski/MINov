@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_LiUO3
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   5.88592778
+_cell_length_b   5.88592743
+_cell_length_c   5.88592784
+_cell_angle_alpha   54.84616027
+_cell_angle_beta   54.84616270
+_cell_angle_gamma   54.84616886
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   LiUO3
+_chemical_formula_sum   'Li2 U2 O6'
+_cell_volume   126.88718923
+_cell_formula_units_Z   2
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.46541395  0.46541395  0.46541295  1
+  Li  Li1  1  0.96541368  0.96541368  0.96541368  1
+  U  U2  1  0.23784927  0.23784927  0.23784927  1
+  U  U3  1  0.73785095  0.73785095  0.73785095  1
+  O  O4  1  0.13340832  0.83998659  0.50333858  1
+  O  O5  1  0.33999430  0.63341734  0.00332701  1
+  O  O6  1  0.63341734  0.00332701  0.33999430  1
+  O  O7  1  0.00332701  0.33999430  0.63341734  1
+  O  O8  1  0.50333858  0.13340932  0.83998659  1
+  O  O9  1  0.83998659  0.50333958  0.13340832  1

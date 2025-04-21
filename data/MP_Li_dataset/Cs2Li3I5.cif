@@ -1,0 +1,36 @@
+# generated using pymatgen
+data_Cs2Li3I5
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.71841827
+_cell_length_b   8.73774837
+_cell_length_c   10.83985247
+_cell_angle_alpha   67.29995139
+_cell_angle_beta   77.41023237
+_cell_angle_gamma   74.39038752
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Cs2Li3I5
+_chemical_formula_sum   'Cs2 Li3 I5'
+_cell_volume   393.79491534
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Cs  Cs0  1  0.68193066  0.86069708  0.77262199  1
+  Cs  Cs1  1  0.31314295  0.14410615  0.22710939  1
+  Li  Li2  1  0.04766718  0.69375648  0.20672189  1
+  Li  Li3  1  0.50549753  0.50160368  0.49803287  1
+  Li  Li4  1  0.94504704  0.31166714  0.79331763  1
+  I  I5  1  0.35763688  0.47872931  0.80317544  1
+  I  I6  1  0.09795903  0.23955717  0.56157777  1
+  I  I7  1  0.89521879  0.76658293  0.43834041  1
+  I  I8  1  0.63511141  0.52678670  0.19828028  1
+  I  I9  1  0.99796952  0.00196137  0.99965632  1

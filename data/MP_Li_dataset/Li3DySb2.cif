@@ -1,0 +1,32 @@
+# generated using pymatgen
+data_Li3DySb2
+_symmetry_space_group_name_H-M   'P 1'
+_cell_length_a   4.52779290
+_cell_length_b   4.52784948
+_cell_length_c   7.16659191
+_cell_angle_alpha   89.99947330
+_cell_angle_beta   89.99935863
+_cell_angle_gamma   120.00013912
+_symmetry_Int_Tables_number   1
+_chemical_formula_structural   Li3DySb2
+_chemical_formula_sum   'Li3 Dy1 Sb2'
+_cell_volume   127.23928875
+_cell_formula_units_Z   1
+loop_
+ _symmetry_equiv_pos_site_id
+ _symmetry_equiv_pos_as_xyz
+  1  'x, y, z'
+loop_
+ _atom_site_type_symbol
+ _atom_site_label
+ _atom_site_symmetry_multiplicity
+ _atom_site_fract_x
+ _atom_site_fract_y
+ _atom_site_fract_z
+ _atom_site_occupancy
+  Li  Li0  1  0.66654269  0.33327141  0.35059977  1
+  Li  Li1  1  0.33345729  0.66672858  0.64940025  1
+  Li  Li2  1  -0.00000000  0.00000002  0.50000000  1
+  Dy  Dy3  1  0.00000002  0.00000001  -0.00000001  1
+  Sb  Sb4  1  0.66671604  0.33335937  0.75168286  1
+  Sb  Sb5  1  0.33328396  0.66664062  0.24831714  1
