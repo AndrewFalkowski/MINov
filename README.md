@@ -1,6 +1,6 @@
 # Materials Novelty Estimation
 
-A parameter-free approach for estimating materials novelty along chemical and structural axes using mutual information-informed density functions. This method computes material density in a way that balances the local and global datastructure to provide a simple means of assessing novelty. The manuscript (`NoveltyMatRevC.pdf`) is still a work and progress and some changes are expected as it moves towards publication.
+A parameter-free approach for estimating materials novelty along chemical and structural axes using mutual information-informed density functions. This method computes material density in a way that balances the local and global datastructure to provide a simple means of assessing novelty. The manuscript (`NoveltyMatRevC.pdf`) is still a work and progress and some changes are expected as it moves towards through the review process.
 
 If you have feedback or ideas for improvement, I would love to hear it!
 
@@ -25,8 +25,8 @@ from MINOV.novelty import compute_MI_novelty
 
 data, mi_data = compute_MI_novelty(
     data = data, # data is assumed to be a df with columns "formula" and "structure"
-    compute_metrics = ['lostop'], # compute the lostop distances
-    precomputed_metrics={"elmd": "perovskite_dataset_elmd_dm.npy"}, # pull precomputed elmd distances
+    compute_metrics = ['lostop'], # compute the lostop DM
+    precomputed_metrics={"elmd": "perovskite_dataset_elmd_dm.npy"}, # precomputed elmd DM
     data_dir="precomputed", # folder containing precomputed distance matrices
     data_prefix="perovskite_dataset", # prefix for labeling purposes
 )
