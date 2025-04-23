@@ -3,31 +3,11 @@ from scipy.spatial.distance import pdist, squareform
 from joblib import Parallel, delayed
 from tqdm import tqdm
 
-from matminer.featurizers.site.fingerprint import CrystalNNFingerprint
-from ElM2D import ElM2D
-from ElMD import ElMD
-import gridrdf
-
 from matminer.featurizers.site import CrystalNNFingerprint
-from matminer.featurizers.structure import SiteStatsFingerprint
 
-# LoStOP Distance ######################################################################
-
-import numpy as np
-from scipy.spatial.distance import pdist, squareform
-from joblib import Parallel, delayed
-from tqdm import tqdm
-
-from matminer.featurizers.site.fingerprint import CrystalNNFingerprint
 from ElM2D import ElM2D
-from ElMD import ElMD
+
 import gridrdf
-
-from matminer.featurizers.site import CrystalNNFingerprint
-from matminer.featurizers.structure import SiteStatsFingerprint
-
-import warnings
-
 # LoStOP Distance ######################################################################
 
 

@@ -81,6 +81,7 @@ def compute_MI_density(distance_matrix, cutoff, mi_profile):
     # Compute normalized MI decay profile
     weight_function = 1 - mi_profile / np.max(mi_profile)
     weight_function[x_interp > cutoff] = 0.0
+    weight_function = weight_function / np.max(weight_function)
 
     # Create forward interpolator (distance -> decay)
     decay_interpolator = interp1d(

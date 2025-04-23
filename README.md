@@ -1,6 +1,6 @@
 # Materials Novelty Estimation
 
-A parameter-free approach for estimating materials novelty along chemical and structural axes using mutual information-informed density functions. This method computes material density in a way that balances the local and global datastructure to provide a simple means of assessing novelty. The manuscript (`NoveltyMatRevC.pdf`) is still a work and progress and some changes are expected as it moves towards publication.
+A parameter-free method for estimating material novelty is introduced, leveraging mutual information to analyze inter-material distances along chemical and structural axes. This approach derives data-driven weight functions from the mutual information profile, enabling the computation of quantitative novelty scores based on local density without requiring preset cutoffs. The methodology is validated on diverse materials datasets, demonstrating its effectiveness in identifying and differentiating chemical and structural novelty to guide materials discovery. The manuscript is currently under review and subject to change. 
 
 If you have feedback or ideas for improvement, I would love to hear it!
 
@@ -18,16 +18,16 @@ Three Jupyter notebooks demonstrate the application of this method:
 
 ## Usage
 
-The core functionality is through the scripts contained in the `MINOV` folder. One can apply the method to an dataframe of materials structures by calling the `compute_MI_novelty` function as below:
+The core functionality is through the scripts contained in the `MINOV` folder. You can apply the method to an dataframe of materials structures by calling the `compute_MI_novelty` function as below:
 
 ```python
 from MINOV.novelty import compute_MI_novelty
 
 data, mi_data = compute_MI_novelty(
-    data = data, # data is assumed to be a df with columns "formula" and "structure"
-    compute_metrics = ['lostop'], # compute the lostop distances
-    precomputed_metrics={"elmd": "perovskite_dataset_elmd_dm.npy"}, # pull precomputed elmd distances
-    data_dir="precomputed", # folder containing precomputed distance matrices
+    data = data, # df of pymatgen structure objects
+    compute_metrics = ['lostop'], # list of distance metrics to compute
+    precomputed_metrics={"elmd": "perovskite_dataset_elmd_dm.npy"}, # precomputed data
+    data_dir="precomputed", # path to folder with precomputed metrics
     data_prefix="perovskite_dataset", # prefix for labeling purposes
 )
 ```
