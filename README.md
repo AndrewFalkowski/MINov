@@ -22,27 +22,25 @@ All required libraries (numpy, pandas, scipy, scikit-learn, matplotlib, matminer
 Core functionality is provided through the scripts contained in the `MINOV` folder. Novelty can be copmuted over a dataframe of pymatgen structure objects by calling the `compute_MI_novelty` function as shown in the code snippet below. Variables isolating specific distance metrics, loading precomputed internal or external distance metrics, and specifying saving paths are provided.
 
 ```python
-...
-import pandas as pd
 from MINOV.novelty import compute_MI_novelty
 
 # Where 'mat_data' is a pandas DataFrame with 'structure' and 'formula' columns
-# containing pymatgen structure objects and strings, respectively
+# containing pymatgen structure objects and formula strings, respectively
 
 data, mi_data = compute_MI_novelty(
     data = mat_data, # df of pymatgen structure objects and formulae
     compute_metrics = ['lostop'], # list of distance metrics to compute
-    precomputed_metrics={"elmd": "perovskite_dataset_elmd_dm.npy"}, # precomputed data
+    precomputed_metrics={"elmd": "perovskite_dataset_elmd_dm.npy"}, # load precomputed
     data_dir="precomputed", # path to folder with precomputed metrics
     data_prefix="perovskite_dataset", # prefix for labeling purposes
 )
 
 # outputs:
-# data - a df containing material information and computed, unnormalized densities
-# mi_data - a dictionary with MI profile data for each computed metric 
+# data - a df containing material information and computed densities for each metric
+# mi_data - a dictionary with computed MI profile data for each metric 
 ```
 
-Further usage examples are available within the example jupyter notebooks described below.
+Further usage examples are available within the jupyter notebooks described below.
 
 ## Demonstrations on Materials Datasets
 

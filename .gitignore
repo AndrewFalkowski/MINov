@@ -3,6 +3,8 @@
 
 # old files and code that I might want to reference later
 code_graveyard.py
+get_mp_data.py
+style/dejavu-sans.condensed.ttf
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -87,8 +89,6 @@ target/
 # IPython
 profile_default/
 ipython_config.py
-
-style/dejavu-sans.condensed.ttf
 
 .pdm.toml
 
