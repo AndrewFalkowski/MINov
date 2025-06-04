@@ -46,13 +46,13 @@ Further usage examples are available within the jupyter notebooks described belo
 
 Three Jupyter notebooks demonstrate the application of this method:
 
-1. `perovskite_novelty.ipynb`: Shows the method applied to a controlled dataset containing three distinct perovskite cyrstal systems: cubic, tetragonal, and orthorhombic. The data for the example is available in `data/perovskite_dataset`.
+1. `perovskite_novelty.ipynb`: Shows the method applied to a controlled dataset containing three distinct perovskite cyrstal systems: cubic, tetragonal, and orthorhombic. The data for this notebook is available in `data/perovskite_dataset`.
 
-2. `diverse_novelty.ipynb`: Demonstrates the method using a structurally diverse dataset of materials with varying degrees of similarity. Shows how the method distinguishes between different types of novelty. The data for the example is available in `data/diverse_dataset`.
+2. `diverse_novelty.ipynb`: Demonstrates the method using a structurally diverse dataset of materials with varying degrees of similarity. Shows how the method distinguishes between different types of novelty. The data for this notebook is available in `data/diverse_dataset`.
 
-3. `Li_novelty.ipynb`: Applies the method to analyze some lithium-containing compounds from the GNOME dataset relative to known materials in the Materials Project database. The data for the example is available in `data/MP_Li_dataset` and `data/GNOME_Li_dataset`.
+3. `Li_novelty.ipynb`: Applies the method to analyze some lithium-containing compounds from the GNOME dataset relative to known materials in the Materials Project database. The data for this notebook is available in `data/MP_Li_dataset` and `data/GNOME_Li_dataset`.
 
-**NOTE:** The GNOME and MP datasets are pulled from v2023.11.1 of the database. As the database, particularly with regards to GNOME offerings, has changed since, we provide all structure files used in the analysis in the `/data` folder.
+**NOTE:** The GNOME and MP datasets are pulled from v2023.11.1 of the database. As the database has since changed, we provide all structure files used in the analysis in the `/data` folder.
 
 ## Citation
 
