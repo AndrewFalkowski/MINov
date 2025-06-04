@@ -88,8 +88,7 @@ target/
 profile_default/
 ipython_config.py
 
-# datasets
-# MP_Li_dataset/
+style/dejavu-sans.condensed.ttf
 
 .pdm.toml
 

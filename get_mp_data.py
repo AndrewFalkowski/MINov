@@ -1,3 +1,5 @@
+# Script for downloading Li containing materials from the Materials Project database.
+
 import pandas as pd
 from mp_api.client import MPRester
 from tqdm import trange
