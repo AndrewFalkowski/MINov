@@ -1,8 +1,20 @@
-# Materials Novelty Estimation
+# Mutual Information-Informed  Novelty Estimation of Materials 
 
-A parameter-free method for estimating material novelty is introduced, leveraging mutual information to analyze inter-material distances along chemical and structural axes. This approach derives data-driven weight functions from the mutual information profile, enabling the computation of quantitative novelty scores based on local density without requiring preset cutoffs. The methodology is validated on diverse materials datasets, demonstrating its effectiveness in identifying and differentiating chemical and structural novelty to guide materials discovery. The manuscript is currently under review and subject to change. 
+A parameter-free method for estimating material novelty is introduced, leveraging mutual information to analyze inter-material distances along chemical and structural axes. This approach derives data-driven weight functions from the mutual information profile, enabling the computation of quantitative novelty scores based on local density without requiring preset cutoffs. The methodology is validated on diverse materials datasets, demonstrating its effectiveness in identifying and differentiating chemical and structural novelty to guide materials discovery. The manuscript is currently under review and subject to change.
 
-If you have feedback or ideas for improvement, I would love to hear it!
+## Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/AndrewFalkowski/MINov.git
+cd MINOV
+
+# Create and activate conda environment
+conda env create -f environment.yml
+conda activate MINOV
+```
+### Dependencies
+All required libraries (numpy, pandas, scipy, scikit-learn, matplotlib, pymatgen) and their versions are specified in `environment.yml`.
 
 ## Demonstrations on Materials Datasets
 
@@ -14,7 +26,7 @@ Three Jupyter notebooks demonstrate the application of this method:
 
 3. `Li_novelty.ipynb`: Applies the method to analyze some lithium-containing compounds from the GNOME dataset relative to known materials in the Materials Project database.
 
-**NOTE** The GNOME and MP datasets are pulled from v2023.11.1 of the database. As the database, particularly with regards to GNOME offerings, has changed since, we provide all structure files used in the analysis.
+**NOTE:** The GNOME and MP datasets are pulled from v2023.11.1 of the database. As the database, particularly with regards to GNOME offerings, has changed since, we provide all structure files used in the analysis.
 
 ## Usage
 
@@ -31,6 +43,8 @@ data, mi_data = compute_MI_novelty(
     data_prefix="perovskite_dataset", # prefix for labeling purposes
 )
 ```
+
+Further usage examples are available within the example jupyter notebooks mention in the preceeding section. 
 
 ## Citation
 

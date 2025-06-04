@@ -1,4 +1,4 @@
-from MINOV.distance import get_lostop_dm, get_elmd_dm, get_gridrdf_dm
+from MINOV.distance import get_lostop_dm, get_elmd_dm
 from MINOV.density import get_MI_profile, compute_MI_density
 import numpy as np
 import pandas as pd
@@ -22,7 +22,7 @@ def compute_MI_novelty(
         precomputed_metrics (dict): Dict mapping metric names to file names
             e.g., {"lostop": "lostop_dm.npy"} - will be loaded from data_dir
         external_metrics (dict): Dict mapping custom metric names to distance matrices
-            e.g., {"gridrdf": gridrdf_dm}
+            e.g., {"elmd": elmd_dm}
         n_thresholds (int): Number of threshold values for MI profile calculation
         data_dir (str): Directory for loading/saving distance matrices
         data_prefix (str): Prefix for saving distance matrices
@@ -52,11 +52,9 @@ def compute_MI_novelty(
                 dm = get_lostop_dm(data["structure"].values)
             elif metric_name == "elmd":
                 dm = get_elmd_dm(data["formula"].values)
-            elif metric_name == "gridrdf":
-                dm = get_gridrdf_dm(data["structure"].values)
             else:
                 raise ValueError(
-                    f"Unknown metric: '{metric_name}' -> Choose from 'lostop', 'elmd', 'gridrdf'."
+                    f"Unknown metric: '{metric_name}' -> Choose from 'lostop' or 'elmd'."
                 )
 
             distance_matrices[metric_name] = dm

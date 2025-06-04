@@ -4,10 +4,8 @@ from joblib import Parallel, delayed
 from tqdm import tqdm
 
 from matminer.featurizers.site import CrystalNNFingerprint
-
 from ElM2D import ElM2D
 
-import gridrdf
 # LoStOP Distance ######################################################################
 
 
@@ -149,83 +147,3 @@ def get_elmd_dm(formulas: list):
     mapper = ElM2D(verbose=False)
     mapper.fit(formulas)
     return mapper.dm
-
-
-# GRID-RDF Distance ####################################################################
-
-
-def calculate_grid_representations(
-    structures: list,
-    maximum_grid_distance=10,
-    bin_size=0.1,
-    broadening=0.1,
-    number_of_shells=100,
-):
-    """
-    Calculate grid representations for a list of structures using RDF analysis.
-
-    Args:
-        structures: List of structure objects to analyze
-        maximum_grid_distance: Maximum distance for the grid calculation (default: 10)
-        bin_size: Size of bins for discretization (default: 0.1)
-        broadening: Broadening parameter for RDF calculation (default: 0.1)
-        number_of_shells: Number of neighbor shells to consider (default: 100)
-
-    Returns:
-        list: List of grid representations for each structure
-    """
-    # Find all neighbours and cutoffs
-    neighbours, cutoffs = gridrdf.extendRDF.find_all_neighbours(
-        structures,
-        num_neighbours=number_of_shells,
-        cutoff=None,
-        return_limits=True,
-        dryrun=False,
-    )
-
-    # Adjust the cutoff to accommodate all nearest neighbours
-    max_dist = max(maximum_grid_distance, np.round(cutoffs[1], 1))
-
-    if max_dist != maximum_grid_distance:
-        print(
-            f"Maximum distance has been updated to {max_dist} to account for {number_of_shells} neighbours"
-        )
-
-    # Calculate grid representations for each structure
-    grid_representations = []
-
-    for i, struct in enumerate(structures):
-        grid_rep = gridrdf.extendRDF.calculate_rdf(
-            struct,
-            neighbours[i],
-            rdf_type="grid",
-            max_dist=max_dist,
-            bin_width=bin_size,
-            smearing=broadening,
-            normed=True,
-            broadening_method="convolve",
-            return_sparse=False,
-        )
-        grid_representations.append(grid_rep)
-
-    return grid_representations
-
-
-def get_gridrdf_dm(structures: list):
-    """
-    Calculate the grid-RDF distance matrix for a list of structures.
-
-    Args:
-        structures: List of structure objects
-
-    Returns:
-        numpy.ndarray: Distance matrix
-    """
-    print("\nCalculating GRID-RDF distance matrix...")
-    grid_representations = calculate_grid_representations(structures)
-
-    distance_matrix = gridrdf.earth_mover_distance.super_fast_EMD_matrix(
-        grid_representations, bin_width=0.1
-    )
-
-    return distance_matrix
