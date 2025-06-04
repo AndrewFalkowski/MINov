@@ -1,4 +1,4 @@
-# Mutual Information-Informed  Novelty Estimation of Materials 
+# Mutual Information-Informed Novelty Estimation of Materials Along Chemical And Structural Axes
 
 A parameter-free method for estimating material novelty is introduced, leveraging mutual information to analyze inter-material distances along chemical and structural axes. This approach derives data-driven weight functions from the mutual information profile, enabling the computation of quantitative novelty scores based on local density without requiring preset cutoffs. The methodology is validated on diverse materials datasets, demonstrating its effectiveness in identifying and differentiating chemical and structural novelty to guide materials discovery. The manuscript is currently under review and subject to change.
 
@@ -14,7 +14,7 @@ conda env create -f environment.yml
 conda activate MINOV
 ```
 ### Dependencies
-All required libraries (numpy, pandas, scipy, scikit-learn, matplotlib, pymatgen) and their versions are specified in `environment.yml`.
+All required libraries (numpy, pandas, scipy, scikit-learn, matplotlib, matminer, pymatgen) and their versions are specified in `environment.yml`.
 
 ## Demonstrations on Materials Datasets
 
