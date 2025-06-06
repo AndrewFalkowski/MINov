@@ -1,4 +1,5 @@
 # Mutual Information-Informed Novelty Estimation Of Materials Along Chemical And Structural Axes
+[![DOI](https://zenodo.org/badge/902081319.svg)](https://doi.org/10.5281/zenodo.15609549)
 
 A parameter-free method for estimating material novelty is introduced, leveraging mutual information to analyze inter-material distances along chemical and structural axes. This approach derives data-driven weight functions from the mutual information profile, enabling the computation of quantitative novelty scores based on local density without requiring preset cutoffs. The methodology is validated on diverse materials datasets, demonstrating its effectiveness in identifying and differentiating chemical and structural novelty to guide materials discovery. The manuscript is currently under review and subject to change.
 
