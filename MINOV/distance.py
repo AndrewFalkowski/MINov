@@ -4,7 +4,7 @@ from joblib import Parallel, delayed
 from tqdm import tqdm
 
 from matminer.featurizers.site import CrystalNNFingerprint
-from ElMD import ElMD
+from pymatgen.core import Composition
 
 # LoStOP Distance ######################################################################
 
@@ -130,15 +130,28 @@ def get_lostop_dm(structures: list, reference=None, precomputed: str = None):
 
 # ElMD Distance ########################################################################
 
+# Modified Pettifor scale: elements ordered by chemical similarity.
+# Glawe et al., "The optimal one dimensional periodic table: a modified Pettifor
+# chemical scale from data mining", New J. Phys. 18, 093011 (2016).
+MOD_PETTIFOR = """
+He Ne Ar Kr Xe Rn Fr Cs Rb K Na Li Ra Ba Sr Ca Eu Yb Lu Tm Y Er Ho Dy Tb Gd Sm Pm Nd Pr
+Ce La Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr Sc Zr Hf Ti Ta Nb V Cr Mo W Re Tc Os Ru
+Ir Rh Pt Pd Au Ag Cu Ni Co Fe Mn Mg Zn Cd Hg Be Al Ga In Tl Pb Sn Ge Si B C N P As Sb Bi Po
+Te Se S O At I Br Cl F H
+""".split()
+_PETTIFOR_INDEX = {element: i for i, element in enumerate(MOD_PETTIFOR)}
+_PETTIFOR_INDEX.update({"D": _PETTIFOR_INDEX["H"], "T": _PETTIFOR_INDEX["H"]})
+
 
 def get_elmd_dm(formulas: list, reference: list = None):
     """
     Calculate ElMD distance matrix for chemical formulas.
 
-    On the modified Pettifor scale, ElMD between two compositions is
-    sum(|cumsum(a - b)|) over their Pettifor-ordered fractional composition
-    vectors. Each row of pairs is evaluated with numpy; cumsum is used for both
-    sums so additions happen in the same sequential order as ElMD's own kernel.
+    The Element Movers Distance (Hargreaves et al., Chem. Mater. 32, 10610 (2020))
+    on the modified Pettifor scale. On this 1D scale the earth mover's distance
+    between two compositions is sum(|cumsum(a - b)|) over their fractional
+    compositions ordered along the scale. Both sums use cumsum, so additions are
+    strictly sequential and results match the ElMD package exactly.
 
     Args:
         formulas: List of chemical formula strings
@@ -169,10 +182,18 @@ def get_elmd_dm(formulas: list, reference: list = None):
 
 def _elmd_vectors(formulas):
     """Fractional compositions ordered along the modified Pettifor scale."""
-    return np.array(
-        [ElMD(formula, metric="mod_petti").feature_vector for formula in formulas],
-        dtype=np.float64,
-    )
+    vectors = np.zeros((len(formulas), len(MOD_PETTIFOR)))
+    for row, formula in zip(vectors, formulas):
+        composition = Composition(formula)
+        total = sum(composition.values(), 0.0)
+        for element, amount in composition.items():
+            symbol = element.symbol
+            if symbol not in _PETTIFOR_INDEX:
+                raise ValueError(
+                    f"Element {symbol} in '{formula}' is not on the modified Pettifor scale."
+                )
+            row[_PETTIFOR_INDEX[symbol]] += amount / total
+    return vectors
 
 
 def _elmd_row(diff):

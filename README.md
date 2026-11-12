@@ -24,7 +24,7 @@ Environments are managed with [uv](https://docs.astral.sh/uv/). To install only 
 
 ### Dependencies
 
-All required libraries (numpy, pandas, scipy, matminer, pymatgen, ElMD, plus scikit-learn, matplotlib and Jupyter for the notebooks) are pinned in `pyproject.toml` to the versions used for the published results, and fully locked in `uv.lock`.
+All required libraries (numpy, pandas, scipy, matminer, pymatgen, plus scikit-learn, matplotlib and Jupyter for the notebooks) are pinned in `pyproject.toml` to the versions used for the published results, and fully locked in `uv.lock`. ElMD distances are computed directly on the modified Pettifor scale (Glawe et al., 2016) and match the [ElMD](https://github.com/lrcfmd/ElMD) package exactly.
 
 ## Usage
 

@@ -16,9 +16,6 @@ dependencies = [
     "spglib==2.6.0",
     "monty==2025.3.3",
     "matminer==0.9.3",
-    "elmd==0.5.15",
-    # ElMD imports pkg_resources, which setuptools removed in v81
-    "setuptools<81",
 ]
 
 [dependency-groups]
@@ -36,8 +33,3 @@ notebooks = [
 # MINOV is imported from the repository root; no package build needed.
 package = false
 default-groups = ["notebooks"]
-# Keep ElMD's transitive dependencies at the versions from the original environment
-constraint-dependencies = [
-    "numba==0.61.2",
-    "llvmlite==0.44.0",
-]
