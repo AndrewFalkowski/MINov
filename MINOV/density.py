@@ -15,31 +15,39 @@ def get_MI_profile(distance_matrix, n_thresholds=200):
         float: cutoff distance
         float: MI profile
     """
+    distance_matrix = np.asarray(distance_matrix)
+
     # Generate threshold values
     thresholds = np.linspace(0, np.max(distance_matrix), n_thresholds)
     mi_values = np.zeros(n_thresholds)
 
-    # Get upper triangle indices
+    # Each pair i < j is one sample (x, y) with x = [d_ij <= t], y = [d_ji <= t].
+    # Count the 2x2 joint table for every threshold at once by sorting the pair
+    # distances and counting how many fall at or below each threshold.
     triu_indices = np.triu_indices_from(distance_matrix, k=1)
+    upper = distance_matrix[triu_indices]
+    lower = distance_matrix[triu_indices[1], triu_indices[0]]
+    n_pairs = len(upper)
 
-    for idx, threshold in enumerate(thresholds):
+    def count_leq(values):
+        return np.searchsorted(np.sort(values), thresholds, side="right")
 
-        # Create binary relationship matrix
-        relation_matrix = (distance_matrix <= threshold).astype(int)
+    if np.array_equal(upper, lower):  # symmetric: x == y for every pair
+        n_x = n_y = n_11 = count_leq(upper)
+    else:
+        n_x, n_y = count_leq(upper), count_leq(lower)
+        n_11 = count_leq(np.maximum(upper, lower))  # NaN propagates, never counted
+    n_10 = n_x - n_11
+    n_01 = n_y - n_11
+    n_00 = n_pairs - n_10 - n_01 - n_11
 
-        # Calculate joint distribution
-        pairs = np.stack(
-            (
-                relation_matrix[triu_indices],
-                relation_matrix[triu_indices[1], triu_indices[0]],
-            ),
-            axis=1,
+    for idx in range(n_thresholds):
+
+        # Joint distribution
+        joint_dist = np.array(
+            [[n_00[idx], n_01[idx]], [n_10[idx], n_11[idx]]], dtype=float
         )
-        joint_dist = np.zeros((2, 2))
-        np.add.at(joint_dist, (pairs[:, 0], pairs[:, 1]), 1)
-
-        # Normalize
-        joint_dist /= len(pairs)
+        joint_dist /= n_pairs
 
         # Calculate marginal distributions
         p_x = joint_dist.sum(axis=1)

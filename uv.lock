@@ -8,10 +8,8 @@ resolution-markers = [
 
 [manifest]
 constraints = [
-    { name = "cython", specifier = "==3.1.1" },
-    { name = "plotly", specifier = "==6.1.2" },
-    { name = "pynndescent", specifier = "==0.5.13" },
-    { name = "umap-learn", specifier = "==0.5.7" },
+    { name = "llvmlite", specifier = "==0.44.0" },
+    { name = "numba", specifier = "==0.61.2" },
 ]
 
 [[package]]
@@ -293,25 +291,6 @@ wheels = [
 ]
 
 [[package]]
-name = "cython"
-version = "3.1.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/5b/d3/bb000603e46144db2e5055219bbddcf7ab3b10012fcb342695694fb88141/cython-3.1.1.tar.gz", hash = "sha256:505ccd413669d5132a53834d792c707974248088c4f60c497deb1b416e366397", size = 3175446, upload-time = "2025-05-19T09:44:54.347Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/37/81/67060b1f3ef43faf039eb1badd27bd3e9c00ec8ff53db35b95760083ea45/cython-3.1.1-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:0de7adff5b42d2556d073e9f321c2faa639a17fb195ec1de130327f60ec209d8", size = 2964150, upload-time = "2025-05-19T09:56:25.366Z" },
-    { url = "https://files.pythonhosted.org/packages/ec/cf/d1bbc3330469d57f2ba4d6d3a0a5a83c503fea6c4a7fc24e1f706d60788e/cython-3.1.1-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:9b61b99205308c96b1162de59bd67ecadcad3d166a4a1f03a3d9e826c39cd375", size = 2827545, upload-time = "2025-05-19T09:56:29.025Z" },
-    { url = "https://files.pythonhosted.org/packages/86/9c/e9af4ee8559331e27e5b9b2f0c21c71fde0b8f8ec1425f826647e432cacc/cython-3.1.1-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:d14186bd96783d13b8fd0e5b289f2e137a8a25479638b73a1c7e4a99a8d70753", size = 3203093, upload-time = "2025-05-19T09:56:31.175Z" },
-    { url = "https://files.pythonhosted.org/packages/6c/3c/322a76b8ca53e23fb016626170e2e10de7791e50736ee3da50cc57eeae65/cython-3.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:0e3ccec55e2a534a712db14c6617b66f65ad149c014fad518fc3920f6edde770", size = 3324310, upload-time = "2025-05-19T09:56:34.638Z" },
-    { url = "https://files.pythonhosted.org/packages/cc/60/335115586fb78ef5dd12151b6e09c9d30bc4353fc08539acdbbf2fd009c5/cython-3.1.1-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:a585796939b09b3205b1980e4a55e745c0251e45a5c637afbcac3c6cc9ad6f90", size = 3385463, upload-time = "2025-05-19T09:56:36.99Z" },
-    { url = "https://files.pythonhosted.org/packages/7d/20/c79d2a7970208f9624029a4fb1504e827c0c575e222729a4fb7dd736f517/cython-3.1.1-cp310-cp310-musllinux_1_2_aarch64.whl", hash = "sha256:3fa4bd840de63509c74867b4b092541720a01db1e07351206011c34e0777dc96", size = 3249043, upload-time = "2025-05-19T09:56:39.091Z" },
-    { url = "https://files.pythonhosted.org/packages/23/1a/5b361d93c1f55fbe29be15375127dc0f64195fb9d7d9e3b4a4137fbe34b2/cython-3.1.1-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:b68f1bc80387554eb43f2b62795c173bed9e37201f39dc5084ac437c90a79c9f", size = 3472158, upload-time = "2025-05-19T09:56:41.276Z" },
-    { url = "https://files.pythonhosted.org/packages/37/80/66831d7eec4becda833d3bd0199e2de8f47881f045bf450763b4bbedfcc6/cython-3.1.1-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:e851ab66a31794e40df1bc6f649cdc56c998c637f5a1b9410c97a90f6b6cb855", size = 3405190, upload-time = "2025-05-19T09:56:44.735Z" },
-    { url = "https://files.pythonhosted.org/packages/62/72/55e71a5a03b73951f260b61ea272c4b7787a41871d7cd6ff77db16351681/cython-3.1.1-cp310-cp310-win32.whl", hash = "sha256:64915259276482fa23417b284d1fdc7e3a618ee2f819bb6ea7f974c075633df6", size = 2451446, upload-time = "2025-05-19T09:56:46.757Z" },
-    { url = "https://files.pythonhosted.org/packages/f0/96/449d384dfe2523476a30bc45da041b5de15a3824530ae64a631efaed81a9/cython-3.1.1-cp310-cp310-win_amd64.whl", hash = "sha256:dee554f0a589377bdaea0eb70e212bf3f35dc6a51a2aa86c9351345e21fd2f07", size = 2650269, upload-time = "2025-05-19T09:56:49.046Z" },
-    { url = "https://files.pythonhosted.org/packages/a7/97/8e8637e67afc09f1b51a617b15a0d1caf0b5159b0f79d47ab101e620e491/cython-3.1.1-py3-none-any.whl", hash = "sha256:07621e044f332d18139df2ccfcc930151fd323c2f61a58c82f304cffc9eb5280", size = 1220898, upload-time = "2025-05-19T09:44:50.614Z" },
-]
-
-[[package]]
 name = "debugpy"
 version = "1.8.22"
 source = { registry = "https://pypi.org/simple" }
@@ -350,23 +329,6 @@ sdist = { url = "https://files.pythonhosted.org/packages/8c/8b/57666417c0f90f08b
 wheels = [
     { url = "https://files.pythonhosted.org/packages/ba/5a/18ad964b0086c6e62e2e7500f7edc89e3faa45033c71c1893d34eed2b2de/dnspython-2.8.0-py3-none-any.whl", hash = "sha256:01d9bbc4a2d76bf0db7c1f729812ded6d912bd318d3b1cf81d30c0f845dbf3af", size = 331094, upload-time = "2025-09-07T18:57:58.071Z" },
 ]
-
-[[package]]
-name = "elm2d"
-version = "0.4.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "cython" },
-    { name = "elmd" },
-    { name = "numba" },
-    { name = "numpy" },
-    { name = "pandas" },
-    { name = "plotly" },
-    { name = "scipy" },
-    { name = "tqdm" },
-    { name = "umap-learn" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/1c/ce/73aaa38b97a5635b4ad5200abc08348c910df8144025385d09f6bc0de4e7/ElM2D-0.4.1.tar.gz", hash = "sha256:0d4bad44b2f9d25c44278c72b9850a7df634608de3026d94d9a0bf0c7c1f3b31", size = 6914, upload-time = "2021-10-19T13:22:20.948Z" }
 
 [[package]]
 name = "elmd"
@@ -947,13 +909,10 @@ name = "minov"
 version = "1.0.0"
 source = { virtual = "." }
 dependencies = [
-    { name = "elm2d" },
     { name = "elmd" },
     { name = "joblib" },
-    { name = "llvmlite" },
     { name = "matminer" },
     { name = "monty" },
-    { name = "numba" },
     { name = "numpy" },
     { name = "pandas" },
     { name = "pymatgen" },
@@ -975,13 +934,10 @@ notebooks = [
 
 [package.metadata]
 requires-dist = [
-    { name = "elm2d", specifier = "==0.4.1" },
     { name = "elmd", specifier = "==0.5.15" },
     { name = "joblib", specifier = "==1.5.1" },
-    { name = "llvmlite", specifier = "==0.44.0" },
     { name = "matminer", specifier = "==0.9.3" },
     { name = "monty", specifier = "==2025.3.3" },
-    { name = "numba", specifier = "==0.61.2" },
     { name = "numpy", specifier = "==2.2.6" },
     { name = "pandas", specifier = "==2.2.3" },
     { name = "pymatgen", specifier = "==2025.5.28" },
@@ -1438,22 +1394,6 @@ wheels = [
 ]
 
 [[package]]
-name = "pynndescent"
-version = "0.5.13"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "joblib" },
-    { name = "llvmlite" },
-    { name = "numba" },
-    { name = "scikit-learn" },
-    { name = "scipy" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/7e/58/560a4db5eb3794d922fe55804b10326534ded3d971e1933c1eef91193f5e/pynndescent-0.5.13.tar.gz", hash = "sha256:d74254c0ee0a1eeec84597d5fe89fedcf778593eeabe32c2f97412934a9800fb", size = 2975955, upload-time = "2024-06-17T15:48:32.914Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/d2/53/d23a97e0a2c690d40b165d1062e2c4ccc796be458a1ce59f6ba030434663/pynndescent-0.5.13-py3-none-any.whl", hash = "sha256:69aabb8f394bc631b6ac475a1c7f3994c54adf3f51cd63b2730fefba5771b949", size = 56850, upload-time = "2024-06-17T15:48:31.184Z" },
-]
-
-[[package]]
 name = "pyparsing"
 version = "3.3.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1890,23 +1830,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz", hash = "sha256:85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d", size = 201017, upload-time = "2026-10-28T09:57:09.137Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0a/66/9a06c2227fedfd4919f0eaaa8b94377d9730882a7e4f95823c9a331ab5e1/tzdata-2026.6-py2.py3-none-any.whl", hash = "sha256:0a10eec6e13ef16b627fabed9a5f2ba61a62b1c67f327305f4e7e412a70b4aec", size = 348210, upload-time = "2026-10-28T09:57:07.276Z" },
-]
-
-[[package]]
-name = "umap-learn"
-version = "0.5.7"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "numba" },
-    { name = "numpy" },
-    { name = "pynndescent" },
-    { name = "scikit-learn" },
-    { name = "scipy" },
-    { name = "tqdm" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/6f/d4/9ed627905f7993349671283b3c5bf2d9f543ef79229fa1c7e01324eb900c/umap-learn-0.5.7.tar.gz", hash = "sha256:b2a97973e4c6ffcebf241100a8de589a4c84126a832ab40f296c6d9fcc5eb19e", size = 92680, upload-time = "2024-10-28T18:05:57.093Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/3c/8f/671c0e1f2572ba625cbcc1faeba9435e00330c3d6962858711445cf1e817/umap_learn-0.5.7-py3-none-any.whl", hash = "sha256:6a7e0be2facfa365a5ed6588447102bdbef32a0ef449535c25c97ea7e680073c", size = 88815, upload-time = "2024-10-28T18:05:55.333Z" },
 ]
 
 [[package]]

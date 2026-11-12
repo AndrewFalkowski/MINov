@@ -4,7 +4,7 @@ from joblib import Parallel, delayed
 from tqdm import tqdm
 
 from matminer.featurizers.site import CrystalNNFingerprint
-from ElM2D import ElM2D
+from ElMD import ElMD
 
 # LoStOP Distance ######################################################################
 
@@ -137,6 +137,11 @@ def get_elmd_dm(formulas: list):
     """
     Calculate ElMD distance matrix for chemical formulas.
 
+    On the modified Pettifor scale, ElMD between two compositions is
+    sum(|cumsum(a - b)|) over their Pettifor-ordered fractional composition
+    vectors. Each row of pairs is evaluated with numpy; cumsum is used for both
+    sums so additions happen in the same sequential order as ElMD's own kernel.
+
     Args:
         formulas: List of chemical formula strings
 
@@ -144,6 +149,15 @@ def get_elmd_dm(formulas: list):
         numpy.ndarray: Distance matrix
     """
     print("\nCalculating ElMD distance matrix...")
-    mapper = ElM2D(verbose=False)
-    mapper.fit(formulas)
-    return mapper.dm
+    vectors = np.array(
+        [ElMD(formula, metric="mod_petti").feature_vector for formula in formulas],
+        dtype=np.float64,
+    )
+    n = len(vectors)
+    distance_matrix = np.zeros((n, n))
+    for i in range(n - 1):
+        diff = vectors[i] - vectors[i + 1 :]
+        row = np.cumsum(np.abs(np.cumsum(diff, axis=1)), axis=1)[:, -1]
+        distance_matrix[i, i + 1 :] = row
+        distance_matrix[i + 1 :, i] = row
+    return distance_matrix
