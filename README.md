@@ -49,6 +49,34 @@ data, mi_data = compute_MI_novelty(
 # mi_data - a dictionary with computed MI profile data for each metric 
 ```
 
+### Scoring new materials against a reference set
+
+`MIProfile` learns the MI profile, cutoff and weight function from a reference distance matrix. Its `density` method then scores any distances against that reference: the reference materials themselves, a batch of new materials, or a single material.
+
+```python
+from MINOV.density import MIProfile
+
+profile = MIProfile(reference_dm)   # e.g. distances among known materials
+profile.cutoff                      # distance at which the MI profile peaks
+
+profile.density(reference_dm)                         # densities of the reference materials
+profile.density(new_to_reference, include_self=True)  # (n_new, n_reference) -> one density per new material
+profile.density(one_to_reference, include_self=True)  # (n_reference,) -> a single density
+```
+
+`include_self=True` adds each new material's contribution to its own density, so new and reference densities are directly comparable. `compute_MI_novelty` also returns the fitted profile for each metric as `mi_data[metric]["profile"]`.
+
+### Exact and grid methods
+
+By default the MI profile is computed exactly: mutual information is evaluated at every distinct pairwise distance in the reference set (using the paper's `d <= t` rule), so there is no threshold grid to choose. The method used in the paper evaluates the profile on a grid of `n_thresholds` evenly spaced thresholds and interpolates between them. It is available with `method="grid"`:
+
+```python
+compute_MI_novelty(..., method="grid", n_thresholds=200)
+MIProfile(reference_dm, method="grid", n_thresholds=200)
+```
+
+The demo notebooks use `method="grid"` to reproduce the published results. The two methods agree closely: on the datasets in this repository, density rankings have a Spearman correlation of at least 0.999, and densities differ by at most 0.05% on the Li dataset. Differences are largest for small datasets with many tied distances (up to ~7% for ElMD on the perovskite dataset, where only 3% of pairwise distances are distinct).
+
 Further usage examples are available within the jupyter notebooks described below.
 
 ## Demonstrations on Materials Datasets

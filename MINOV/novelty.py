@@ -1,5 +1,5 @@
 from MINOV.distance import get_lostop_dm, get_elmd_dm
-from MINOV.density import get_MI_profile, compute_MI_density
+from MINOV.density import MIProfile
 import numpy as np
 import pandas as pd
 
@@ -12,6 +12,7 @@ def compute_MI_novelty(
     n_thresholds=200,
     data_dir=None,
     data_prefix=None,
+    method="exact",
 ):
     """
     Compute novelty/density metrics for structures using MI-based density analysis.
@@ -23,12 +24,16 @@ def compute_MI_novelty(
             e.g., {"lostop": "lostop_dm.npy"} - will be loaded from data_dir
         external_metrics (dict): Dict mapping custom metric names to distance matrices
             e.g., {"elmd": elmd_dm}
-        n_thresholds (int): Number of threshold values for MI profile calculation
+        n_thresholds (int): Number of thresholds for method="grid"
         data_dir (str): Directory for loading/saving distance matrices
         data_prefix (str): Prefix for saving distance matrices
+        method (str): "exact" (default) or "grid" (the published method, used by the
+            demo notebooks to reproduce the paper). See MIProfile.
 
     Returns:
-        tuple: (DataFrame with density columns, dict of MI data)
+        tuple: (DataFrame with density columns, dict of MI data). For each metric the
+            MI data holds "tau", "cutoff", "mi_profile", "weight_function" and the
+            fitted "profile" (an MIProfile, usable to score new materials).
     """
     # Initialize results
     df = data.copy()
@@ -73,16 +78,15 @@ def compute_MI_novelty(
 
     # Compute density for each distance matrix
     for metric_name, dm in distance_matrices.items():
-        cutoff, mi_profile = get_MI_profile(dm, n_thresholds=n_thresholds)
-        df[f"{metric_name}_density"], weight_function = compute_MI_density(
-            dm, cutoff, mi_profile
-        )
+        profile = MIProfile(dm, method=method, n_thresholds=n_thresholds)
+        df[f"{metric_name}_density"] = profile.density(dm)
         mi_data[metric_name] = {
-            "tau": np.linspace(0, np.max(dm), n_thresholds),
-            "cutoff": cutoff,
-            "mi_profile": mi_profile,
-            "weight_function": weight_function,
+            "tau": profile.thresholds,
+            "cutoff": profile.cutoff,
+            "mi_profile": profile.mi_profile,
+            "weight_function": profile.weight_function,
+            "profile": profile,
         }
-        print(f"MI cutoff for {metric_name}: {cutoff}")
+        print(f"MI cutoff for {metric_name}: {profile.cutoff}")
 
     return df, mi_data
