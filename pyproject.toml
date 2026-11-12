@@ -1,0 +1,48 @@
+[project]
+name = "minov"
+version = "1.0.0"
+description = "Mutual information-informed novelty estimation of materials along chemical and structural axes"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10,<3.11"
+# Pinned to the versions used to produce the published results.
+dependencies = [
+    "numpy==2.2.6",
+    "scipy==1.15.2",
+    "pandas==2.2.3",
+    "joblib==1.5.1",
+    "tqdm==4.67.1",
+    "pymatgen==2025.5.28",
+    "spglib==2.6.0",
+    "monty==2025.3.3",
+    "matminer==0.9.3",
+    "elmd==0.5.15",
+    "elm2d==0.4.1",
+    "numba==0.61.2",
+    "llvmlite==0.44.0",
+    # ElMD imports pkg_resources, which setuptools removed in v81
+    "setuptools<81",
+]
+
+[dependency-groups]
+# Everything needed to run the demo and analysis notebooks
+notebooks = [
+    "jupyterlab==4.4.3",
+    "ipykernel==6.29.5",
+    "ipywidgets==8.1.7",
+    "matplotlib==3.10.3",
+    "scikit-learn==1.6.1",
+    "textalloc==1.1.8",
+]
+
+[tool.uv]
+# MINOV is imported from the repository root; no package build needed.
+package = false
+default-groups = ["notebooks"]
+# Keep ElM2D's transitive dependencies at the versions from the original environment
+constraint-dependencies = [
+    "umap-learn==0.5.7",
+    "pynndescent==0.5.13",
+    "plotly==6.1.2",
+    "cython==3.1.1",
+]

@@ -13,13 +13,18 @@ For detailed methodology, validation results, and theoretical background, see th
 git clone https://github.com/AndrewFalkowski/MINov.git
 cd MINov
 
-# Create and activate conda environment
-conda env create -f environment.yml
-conda activate MINOV
+# Create the environment (installs Python 3.10 and all pinned dependencies)
+uv sync
+
+# Launch the notebooks
+uv run jupyter lab
 ```
+
+Environments are managed with [uv](https://docs.astral.sh/uv/). To install only the core dependencies (without Jupyter and plotting libraries), use `uv sync --no-default-groups`.
+
 ### Dependencies
 
-All required libraries (numpy, pandas, scipy, scikit-learn, matplotlib, matminer, pymatgen) and their versions are specified in `environment.yml`.
+All required libraries (numpy, pandas, scipy, matminer, pymatgen, ElMD, plus scikit-learn, matplotlib and Jupyter for the notebooks) are pinned in `pyproject.toml` to the versions used for the published results, and fully locked in `uv.lock`.
 
 ## Usage
 
