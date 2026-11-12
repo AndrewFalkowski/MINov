@@ -66,6 +66,17 @@ profile.density(one_to_reference, include_self=True)  # (n_reference,) -> a sing
 
 `include_self=True` adds each new material's contribution to its own density, so new and reference densities are directly comparable. `compute_MI_novelty` also returns the fitted profile for each metric as `mi_data[metric]["profile"]`.
 
+The distance functions return new-vs-reference distances directly when given a `reference`, so distances among the new materials are never computed:
+
+```python
+from MINOV.distance import get_elmd_dm, get_lostop_dm, get_lostop_features
+
+new_to_reference = get_elmd_dm(new_formulas, reference=reference_formulas)
+
+reference_features = get_lostop_features(reference_structures)  # compute once, np.save to reuse
+new_to_reference = get_lostop_dm(new_structures, reference=reference_features)
+```
+
 ### Exact and grid methods
 
 By default the MI profile is computed exactly: mutual information is evaluated at every distinct pairwise distance in the reference set (using the paper's `d <= t` rule), so there is no threshold grid to choose. The method used in the paper evaluates the profile on a grid of `n_thresholds` evenly spaced thresholds and interpolates between them. It is available with `method="grid"`:

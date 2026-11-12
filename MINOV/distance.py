@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.spatial.distance import pdist, squareform
+from scipy.spatial.distance import cdist, pdist, squareform
 from joblib import Parallel, delayed
 from tqdm import tqdm
 
@@ -63,9 +63,12 @@ def process_structure(idx, structure, preset="ops", verbose=True):
         return None, None
 
 
-def calculate_fingerprints(structures, preset="ops", n_jobs=-1):
+def get_lostop_features(structures, preset="ops", n_jobs=-1):
     """
-    Calculates structure fingerprints in parallel using joblib.
+    Calculate LoStOP fingerprints (statistics of CrystalNN site fingerprints) in parallel.
+
+    Save the result (e.g. with np.save) to reuse a reference set's fingerprints
+    without featurizing it again; see `get_lostop_dm(..., reference=...)`.
 
     Args:
         structures: List of pymatgen Structure objects
@@ -73,67 +76,62 @@ def calculate_fingerprints(structures, preset="ops", n_jobs=-1):
         n_jobs: Number of parallel jobs (-1 for all cores)
 
     Returns:
-        tuple: (list of fingerprints, feature labels)
+        numpy.ndarray: Fingerprints, one row per structure
+
+    Raises:
+        RuntimeError: If no site of a structure could be featurized. Such structures
+            would otherwise silently drop out and misalign the rows of the result.
     """
-    indices = list(range(len(structures)))
-
-    iterator = tqdm(
-        zip(indices, structures),
-        total=len(structures),
-        desc="Generating LoStOP DM",
-    )
-
-    # Process structures in parallel
-    results = Parallel(n_jobs=n_jobs, backend="loky")(
+    results = Parallel(n_jobs=n_jobs, backend="loky", return_as="generator")(
         delayed(process_structure)(idx, structure, preset=preset, verbose=True)
-        for idx, structure in iterator
+        for idx, structure in enumerate(structures)
+    )
+    results = list(
+        tqdm(results, total=len(structures), desc="Generating LoStOP fingerprints")
     )
 
-    # Separate fingerprints and labels
-    structure_feats, labels_list = zip(*results)
-
-    # Filter out None values from failed calculations
-    structure_feats = [feat for feat in structure_feats if feat is not None]
-
-    # Use labels from first successful calculation
-    labels = next((lab for lab in labels_list if lab is not None), None)
-
-    return structure_feats, labels
+    failed = [idx for idx, (feat, _) in enumerate(results) if feat is None]
+    if failed:
+        raise RuntimeError(
+            f"LoStOP featurization failed for {len(failed)} structure(s) at indices "
+            f"{failed}. Remove them from the input so rows stay aligned with your data."
+        )
+    return np.array([feat for feat, _ in results])
 
 
-def get_lostop_dm(structures: list, precomputed: str = None):
+def get_lostop_dm(structures: list, reference=None, precomputed: str = None):
     """
     Calculate LoStOP distance matrix with expanded statistics.
 
     Args:
         structures: List of pymatgen Structure objects
-        precomputed: Path to precomputed features file (optional)
+        reference: Optional reference set, either a list of pymatgen Structure
+            objects or their fingerprints from `get_lostop_features`. When given,
+            returns distances from each structure to each reference structure.
+        precomputed: Path to precomputed features file for `structures` (optional)
 
     Returns:
-        numpy.ndarray: Distance matrix
+        numpy.ndarray: (n, n) distance matrix, or (n, n_reference) if `reference` is given
     """
     print("\nCalculating LoStOP distance matrix...")
 
     if precomputed is None:
-        structure_feats, labels = calculate_fingerprints(structures)
-        structure_feats = np.array(structure_feats)
+        features = get_lostop_features(structures)
     else:
-        structure_feats = np.loadtxt(precomputed, delimiter=",", skiprows=1)
-        labels = None
+        features = np.loadtxt(precomputed, delimiter=",", skiprows=1)
 
-    try:
-        distance_matrix = squareform(pdist(structure_feats, metric="euclidean"))
-    except ValueError as e:
-        print(f"Error calculating distance matrix: {e}")
-        distance_matrix = structure_feats
+    if reference is None:
+        return squareform(pdist(features, metric="euclidean"))
 
-    return distance_matrix
+    if not isinstance(reference, np.ndarray):
+        reference = get_lostop_features(reference)
+    return cdist(features, reference, metric="euclidean")
 
 
 # ElMD Distance ########################################################################
 
 
-def get_elmd_dm(formulas: list):
+def get_elmd_dm(formulas: list, reference: list = None):
     """
     Calculate ElMD distance matrix for chemical formulas.
 
@@ -144,20 +142,39 @@ def get_elmd_dm(formulas: list):
 
     Args:
         formulas: List of chemical formula strings
+        reference: Optional list of reference formula strings. When given, returns
+            distances from each formula to each reference formula.
 
     Returns:
-        numpy.ndarray: Distance matrix
+        numpy.ndarray: (n, n) distance matrix, or (n, n_reference) if `reference` is given
     """
     print("\nCalculating ElMD distance matrix...")
-    vectors = np.array(
-        [ElMD(formula, metric="mod_petti").feature_vector for formula in formulas],
-        dtype=np.float64,
-    )
+    vectors = _elmd_vectors(formulas)
+
+    if reference is not None:
+        reference_vectors = _elmd_vectors(reference)
+        distance_matrix = np.zeros((len(vectors), len(reference_vectors)))
+        for i, vector in enumerate(vectors):
+            distance_matrix[i] = _elmd_row(vector - reference_vectors)
+        return distance_matrix
+
     n = len(vectors)
     distance_matrix = np.zeros((n, n))
     for i in range(n - 1):
-        diff = vectors[i] - vectors[i + 1 :]
-        row = np.cumsum(np.abs(np.cumsum(diff, axis=1)), axis=1)[:, -1]
+        row = _elmd_row(vectors[i] - vectors[i + 1 :])
         distance_matrix[i, i + 1 :] = row
         distance_matrix[i + 1 :, i] = row
     return distance_matrix
+
+
+def _elmd_vectors(formulas):
+    """Fractional compositions ordered along the modified Pettifor scale."""
+    return np.array(
+        [ElMD(formula, metric="mod_petti").feature_vector for formula in formulas],
+        dtype=np.float64,
+    )
+
+
+def _elmd_row(diff):
+    """ElMD for each row of composition-vector differences."""
+    return np.cumsum(np.abs(np.cumsum(diff, axis=1)), axis=1)[:, -1]
