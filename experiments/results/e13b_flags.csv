@@ -1,0 +1,271 @@
+chem,Y,metric,score,predictor,flag
+li,1990,elmd,MINov (exact),slope_pct,True
+li,1990,lostop,MINov (exact),slope_pct,True
+li,2000,elmd,MINov (exact),slope_pct,True
+li,2000,lostop,MINov (exact),slope_pct,True
+li,2005,elmd,MINov (exact),slope_pct,True
+li,2005,lostop,MINov (exact),slope_pct,True
+na,1990,elmd,MINov (exact),slope_pct,False
+na,1990,lostop,MINov (exact),slope_pct,False
+na,2000,elmd,MINov (exact),slope_pct,False
+na,2000,lostop,MINov (exact),slope_pct,False
+na,2005,elmd,MINov (exact),slope_pct,False
+na,2005,lostop,MINov (exact),slope_pct,True
+nitride,1990,elmd,MINov (exact),slope_pct,True
+nitride,1990,lostop,MINov (exact),slope_pct,True
+nitride,2000,elmd,MINov (exact),slope_pct,True
+nitride,2000,lostop,MINov (exact),slope_pct,True
+nitride,2005,elmd,MINov (exact),slope_pct,True
+nitride,2005,lostop,MINov (exact),slope_pct,True
+li,1990,elmd,MINov (exact),elasticity,True
+li,1990,lostop,MINov (exact),elasticity,True
+li,2000,elmd,MINov (exact),elasticity,True
+li,2000,lostop,MINov (exact),elasticity,False
+li,2005,elmd,MINov (exact),elasticity,True
+li,2005,lostop,MINov (exact),elasticity,False
+na,1990,elmd,MINov (exact),elasticity,True
+na,1990,lostop,MINov (exact),elasticity,False
+na,2000,elmd,MINov (exact),elasticity,False
+na,2000,lostop,MINov (exact),elasticity,False
+na,2005,elmd,MINov (exact),elasticity,False
+na,2005,lostop,MINov (exact),elasticity,True
+nitride,1990,elmd,MINov (exact),elasticity,True
+nitride,1990,lostop,MINov (exact),elasticity,True
+nitride,2000,elmd,MINov (exact),elasticity,True
+nitride,2000,lostop,MINov (exact),elasticity,False
+nitride,2005,elmd,MINov (exact),elasticity,True
+nitride,2005,lostop,MINov (exact),elasticity,True
+li,1990,elmd,MINov (exact),excess_elasticity,True
+li,1990,lostop,MINov (exact),excess_elasticity,True
+li,2000,elmd,MINov (exact),excess_elasticity,True
+li,2000,lostop,MINov (exact),excess_elasticity,False
+li,2005,elmd,MINov (exact),excess_elasticity,True
+li,2005,lostop,MINov (exact),excess_elasticity,False
+na,1990,elmd,MINov (exact),excess_elasticity,True
+na,1990,lostop,MINov (exact),excess_elasticity,False
+na,2000,elmd,MINov (exact),excess_elasticity,False
+na,2000,lostop,MINov (exact),excess_elasticity,False
+na,2005,elmd,MINov (exact),excess_elasticity,False
+na,2005,lostop,MINov (exact),excess_elasticity,True
+nitride,1990,elmd,MINov (exact),excess_elasticity,True
+nitride,1990,lostop,MINov (exact),excess_elasticity,True
+nitride,2000,elmd,MINov (exact),excess_elasticity,True
+nitride,2000,lostop,MINov (exact),excess_elasticity,False
+nitride,2005,elmd,MINov (exact),excess_elasticity,True
+nitride,2005,lostop,MINov (exact),excess_elasticity,True
+li,1990,elmd,MINov (exact),pct_hat,True
+li,1990,lostop,MINov (exact),pct_hat,True
+li,2000,elmd,MINov (exact),pct_hat,False
+li,2000,lostop,MINov (exact),pct_hat,False
+li,2005,elmd,MINov (exact),pct_hat,False
+li,2005,lostop,MINov (exact),pct_hat,False
+na,1990,elmd,MINov (exact),pct_hat,False
+na,1990,lostop,MINov (exact),pct_hat,False
+na,2000,elmd,MINov (exact),pct_hat,False
+na,2000,lostop,MINov (exact),pct_hat,False
+na,2005,elmd,MINov (exact),pct_hat,False
+na,2005,lostop,MINov (exact),pct_hat,False
+nitride,1990,elmd,MINov (exact),pct_hat,True
+nitride,1990,lostop,MINov (exact),pct_hat,True
+nitride,2000,elmd,MINov (exact),pct_hat,False
+nitride,2000,lostop,MINov (exact),pct_hat,False
+nitride,2005,elmd,MINov (exact),pct_hat,False
+nitride,2005,lostop,MINov (exact),pct_hat,False
+li,1990,elmd,MINov (exact),n_Y,True
+li,1990,lostop,MINov (exact),n_Y,True
+li,2000,elmd,MINov (exact),n_Y,False
+li,2000,lostop,MINov (exact),n_Y,False
+li,2005,elmd,MINov (exact),n_Y,False
+li,2005,lostop,MINov (exact),n_Y,False
+na,1990,elmd,MINov (exact),n_Y,False
+na,1990,lostop,MINov (exact),n_Y,False
+na,2000,elmd,MINov (exact),n_Y,False
+na,2000,lostop,MINov (exact),n_Y,False
+na,2005,elmd,MINov (exact),n_Y,False
+na,2005,lostop,MINov (exact),n_Y,False
+nitride,1990,elmd,MINov (exact),n_Y,True
+nitride,1990,lostop,MINov (exact),n_Y,True
+nitride,2000,elmd,MINov (exact),n_Y,True
+nitride,2000,lostop,MINov (exact),n_Y,True
+nitride,2005,elmd,MINov (exact),n_Y,True
+nitride,2005,lostop,MINov (exact),n_Y,True
+li,1990,elmd,1-NN distance,slope_pct,True
+li,1990,lostop,1-NN distance,slope_pct,True
+li,2000,elmd,1-NN distance,slope_pct,True
+li,2000,lostop,1-NN distance,slope_pct,False
+li,2005,elmd,1-NN distance,slope_pct,True
+li,2005,lostop,1-NN distance,slope_pct,False
+na,1990,elmd,1-NN distance,slope_pct,True
+na,1990,lostop,1-NN distance,slope_pct,False
+na,2000,elmd,1-NN distance,slope_pct,False
+na,2000,lostop,1-NN distance,slope_pct,False
+na,2005,elmd,1-NN distance,slope_pct,False
+na,2005,lostop,1-NN distance,slope_pct,False
+nitride,1990,elmd,1-NN distance,slope_pct,True
+nitride,1990,lostop,1-NN distance,slope_pct,False
+nitride,2000,elmd,1-NN distance,slope_pct,True
+nitride,2000,lostop,1-NN distance,slope_pct,True
+nitride,2005,elmd,1-NN distance,slope_pct,True
+nitride,2005,lostop,1-NN distance,slope_pct,False
+li,1990,elmd,1-NN distance,elasticity,True
+li,1990,lostop,1-NN distance,elasticity,True
+li,2000,elmd,1-NN distance,elasticity,True
+li,2000,lostop,1-NN distance,elasticity,True
+li,2005,elmd,1-NN distance,elasticity,True
+li,2005,lostop,1-NN distance,elasticity,True
+na,1990,elmd,1-NN distance,elasticity,False
+na,1990,lostop,1-NN distance,elasticity,True
+na,2000,elmd,1-NN distance,elasticity,True
+na,2000,lostop,1-NN distance,elasticity,True
+na,2005,elmd,1-NN distance,elasticity,True
+na,2005,lostop,1-NN distance,elasticity,True
+nitride,1990,elmd,1-NN distance,elasticity,False
+nitride,1990,lostop,1-NN distance,elasticity,True
+nitride,2000,elmd,1-NN distance,elasticity,False
+nitride,2000,lostop,1-NN distance,elasticity,True
+nitride,2005,elmd,1-NN distance,elasticity,False
+nitride,2005,lostop,1-NN distance,elasticity,True
+li,1990,elmd,1-NN distance,excess_elasticity,True
+li,1990,lostop,1-NN distance,excess_elasticity,True
+li,2000,elmd,1-NN distance,excess_elasticity,True
+li,2000,lostop,1-NN distance,excess_elasticity,True
+li,2005,elmd,1-NN distance,excess_elasticity,True
+li,2005,lostop,1-NN distance,excess_elasticity,True
+na,1990,elmd,1-NN distance,excess_elasticity,False
+na,1990,lostop,1-NN distance,excess_elasticity,True
+na,2000,elmd,1-NN distance,excess_elasticity,True
+na,2000,lostop,1-NN distance,excess_elasticity,True
+na,2005,elmd,1-NN distance,excess_elasticity,True
+na,2005,lostop,1-NN distance,excess_elasticity,True
+nitride,1990,elmd,1-NN distance,excess_elasticity,False
+nitride,1990,lostop,1-NN distance,excess_elasticity,True
+nitride,2000,elmd,1-NN distance,excess_elasticity,False
+nitride,2000,lostop,1-NN distance,excess_elasticity,True
+nitride,2005,elmd,1-NN distance,excess_elasticity,False
+nitride,2005,lostop,1-NN distance,excess_elasticity,True
+li,1990,elmd,1-NN distance,pct_hat,True
+li,1990,lostop,1-NN distance,pct_hat,True
+li,2000,elmd,1-NN distance,pct_hat,True
+li,2000,lostop,1-NN distance,pct_hat,True
+li,2005,elmd,1-NN distance,pct_hat,True
+li,2005,lostop,1-NN distance,pct_hat,False
+na,1990,elmd,1-NN distance,pct_hat,True
+na,1990,lostop,1-NN distance,pct_hat,True
+na,2000,elmd,1-NN distance,pct_hat,True
+na,2000,lostop,1-NN distance,pct_hat,True
+na,2005,elmd,1-NN distance,pct_hat,False
+na,2005,lostop,1-NN distance,pct_hat,False
+nitride,1990,elmd,1-NN distance,pct_hat,True
+nitride,1990,lostop,1-NN distance,pct_hat,True
+nitride,2000,elmd,1-NN distance,pct_hat,True
+nitride,2000,lostop,1-NN distance,pct_hat,True
+nitride,2005,elmd,1-NN distance,pct_hat,False
+nitride,2005,lostop,1-NN distance,pct_hat,False
+li,1990,elmd,1-NN distance,n_Y,True
+li,1990,lostop,1-NN distance,n_Y,True
+li,2000,elmd,1-NN distance,n_Y,True
+li,2000,lostop,1-NN distance,n_Y,True
+li,2005,elmd,1-NN distance,n_Y,True
+li,2005,lostop,1-NN distance,n_Y,True
+na,1990,elmd,1-NN distance,n_Y,True
+na,1990,lostop,1-NN distance,n_Y,True
+na,2000,elmd,1-NN distance,n_Y,False
+na,2000,lostop,1-NN distance,n_Y,False
+na,2005,elmd,1-NN distance,n_Y,False
+na,2005,lostop,1-NN distance,n_Y,False
+nitride,1990,elmd,1-NN distance,n_Y,True
+nitride,1990,lostop,1-NN distance,n_Y,True
+nitride,2000,elmd,1-NN distance,n_Y,True
+nitride,2000,lostop,1-NN distance,n_Y,True
+nitride,2005,elmd,1-NN distance,n_Y,True
+nitride,2005,lostop,1-NN distance,n_Y,True
+li,1990,elmd,KDE (median bw),slope_pct,False
+li,1990,lostop,KDE (median bw),slope_pct,True
+li,2000,elmd,KDE (median bw),slope_pct,True
+li,2000,lostop,KDE (median bw),slope_pct,False
+li,2005,elmd,KDE (median bw),slope_pct,True
+li,2005,lostop,KDE (median bw),slope_pct,False
+na,1990,elmd,KDE (median bw),slope_pct,False
+na,1990,lostop,KDE (median bw),slope_pct,True
+na,2000,elmd,KDE (median bw),slope_pct,False
+na,2000,lostop,KDE (median bw),slope_pct,True
+na,2005,elmd,KDE (median bw),slope_pct,False
+na,2005,lostop,KDE (median bw),slope_pct,True
+nitride,1990,elmd,KDE (median bw),slope_pct,True
+nitride,1990,lostop,KDE (median bw),slope_pct,False
+nitride,2000,elmd,KDE (median bw),slope_pct,True
+nitride,2000,lostop,KDE (median bw),slope_pct,False
+nitride,2005,elmd,KDE (median bw),slope_pct,True
+nitride,2005,lostop,KDE (median bw),slope_pct,False
+li,1990,elmd,KDE (median bw),elasticity,True
+li,1990,lostop,KDE (median bw),elasticity,True
+li,2000,elmd,KDE (median bw),elasticity,True
+li,2000,lostop,KDE (median bw),elasticity,True
+li,2005,elmd,KDE (median bw),elasticity,True
+li,2005,lostop,KDE (median bw),elasticity,False
+na,1990,elmd,KDE (median bw),elasticity,False
+na,1990,lostop,KDE (median bw),elasticity,False
+na,2000,elmd,KDE (median bw),elasticity,True
+na,2000,lostop,KDE (median bw),elasticity,False
+na,2005,elmd,KDE (median bw),elasticity,False
+na,2005,lostop,KDE (median bw),elasticity,False
+nitride,1990,elmd,KDE (median bw),elasticity,False
+nitride,1990,lostop,KDE (median bw),elasticity,True
+nitride,2000,elmd,KDE (median bw),elasticity,False
+nitride,2000,lostop,KDE (median bw),elasticity,False
+nitride,2005,elmd,KDE (median bw),elasticity,False
+nitride,2005,lostop,KDE (median bw),elasticity,False
+li,1990,elmd,KDE (median bw),excess_elasticity,True
+li,1990,lostop,KDE (median bw),excess_elasticity,True
+li,2000,elmd,KDE (median bw),excess_elasticity,True
+li,2000,lostop,KDE (median bw),excess_elasticity,True
+li,2005,elmd,KDE (median bw),excess_elasticity,True
+li,2005,lostop,KDE (median bw),excess_elasticity,False
+na,1990,elmd,KDE (median bw),excess_elasticity,False
+na,1990,lostop,KDE (median bw),excess_elasticity,False
+na,2000,elmd,KDE (median bw),excess_elasticity,True
+na,2000,lostop,KDE (median bw),excess_elasticity,False
+na,2005,elmd,KDE (median bw),excess_elasticity,False
+na,2005,lostop,KDE (median bw),excess_elasticity,False
+nitride,1990,elmd,KDE (median bw),excess_elasticity,False
+nitride,1990,lostop,KDE (median bw),excess_elasticity,True
+nitride,2000,elmd,KDE (median bw),excess_elasticity,False
+nitride,2000,lostop,KDE (median bw),excess_elasticity,False
+nitride,2005,elmd,KDE (median bw),excess_elasticity,False
+nitride,2005,lostop,KDE (median bw),excess_elasticity,False
+li,1990,elmd,KDE (median bw),pct_hat,False
+li,1990,lostop,KDE (median bw),pct_hat,True
+li,2000,elmd,KDE (median bw),pct_hat,False
+li,2000,lostop,KDE (median bw),pct_hat,False
+li,2005,elmd,KDE (median bw),pct_hat,False
+li,2005,lostop,KDE (median bw),pct_hat,False
+na,1990,elmd,KDE (median bw),pct_hat,False
+na,1990,lostop,KDE (median bw),pct_hat,True
+na,2000,elmd,KDE (median bw),pct_hat,False
+na,2000,lostop,KDE (median bw),pct_hat,False
+na,2005,elmd,KDE (median bw),pct_hat,False
+na,2005,lostop,KDE (median bw),pct_hat,False
+nitride,1990,elmd,KDE (median bw),pct_hat,True
+nitride,1990,lostop,KDE (median bw),pct_hat,False
+nitride,2000,elmd,KDE (median bw),pct_hat,False
+nitride,2000,lostop,KDE (median bw),pct_hat,False
+nitride,2005,elmd,KDE (median bw),pct_hat,False
+nitride,2005,lostop,KDE (median bw),pct_hat,False
+li,1990,elmd,KDE (median bw),n_Y,True
+li,1990,lostop,KDE (median bw),n_Y,True
+li,2000,elmd,KDE (median bw),n_Y,False
+li,2000,lostop,KDE (median bw),n_Y,False
+li,2005,elmd,KDE (median bw),n_Y,False
+li,2005,lostop,KDE (median bw),n_Y,False
+na,1990,elmd,KDE (median bw),n_Y,False
+na,1990,lostop,KDE (median bw),n_Y,False
+na,2000,elmd,KDE (median bw),n_Y,False
+na,2000,lostop,KDE (median bw),n_Y,False
+na,2005,elmd,KDE (median bw),n_Y,False
+na,2005,lostop,KDE (median bw),n_Y,False
+nitride,1990,elmd,KDE (median bw),n_Y,True
+nitride,1990,lostop,KDE (median bw),n_Y,True
+nitride,2000,elmd,KDE (median bw),n_Y,True
+nitride,2000,lostop,KDE (median bw),n_Y,True
+nitride,2005,elmd,KDE (median bw),n_Y,True
+nitride,2005,lostop,KDE (median bw),n_Y,True

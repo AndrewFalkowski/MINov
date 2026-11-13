@@ -1,0 +1,10 @@
+check,metric,score,max_abs_score_diff,thr_ref,thr_engine,n_novel_ref,n_novel_engine,n_novel_e7
+A entry-level vs engine,elmd,MINov (exact),1.1368683772161603e-13,74.53465684478415,74.53465684478415,1465,1465,1465.0
+A entry-level vs engine,elmd,1-NN distance,0.0,-2.2503845930099486,-2.2503845930099486,1932,1932,1932.0
+A entry-level vs engine,elmd,KDE (median bw),4.547473508864641e-13,653.558435324422,653.5584353244221,516,516,516.0
+A entry-level vs engine,lostop,MINov (exact),1.1368683772161603e-13,72.89749634936167,72.89749634936169,103,103,103.0
+A entry-level vs engine,lostop,1-NN distance,0.0,-1.1364740967750548,-1.1364740967750548,432,432,432.0
+A entry-level vs engine,lostop,KDE (median bw),4.547473508864641e-13,1033.9016143852166,1033.9016143852166,50,50,50.0
+"weighted engine vs expanded (4124 entries, 303 formulas)",elmd,MINov (exact),5.684341886080802e-14,112.03952506068032,112.03952506068032,388,388,
+"weighted engine vs expanded (4124 entries, 303 formulas)",elmd,1-NN distance,0.0,-0.37232142984867084,-0.37232142984867084,400,400,
+"weighted engine vs expanded (4124 entries, 303 formulas)",elmd,KDE (median bw),1.184616849059239e-10,1960.5961803066416,1960.5961803066414,367,367,

@@ -1,0 +1,109 @@
+chem,Y,metric,score,pool,c_wide,n,n_conf,n_conf_flip,flag
+li,1990,elmd,1-NN distance,a_G,7.8068385001207306,3000,485,0,True
+li,1990,elmd,1-NN distance,b_Rnew,7.8068385001207306,1177,669,0,True
+li,1990,elmd,KDE (median bw),a_G,7.164594959530281,3000,2180,0,False
+li,1990,elmd,KDE (median bw),b_Rnew,7.164594959530281,1177,1038,0,False
+li,1990,elmd,MINov (exact),a_G,4.607960304607873,3000,1598,0,True
+li,1990,elmd,MINov (exact),b_Rnew,4.607960304607873,1177,1088,0,True
+li,1990,lostop,1-NN distance,a_G,7.601913525953489,3000,2033,0,True
+li,1990,lostop,1-NN distance,b_Rnew,7.601913525953489,1177,851,0,True
+li,1990,lostop,KDE (median bw),a_G,7.283061918478466,3000,2899,4,True
+li,1990,lostop,KDE (median bw),b_Rnew,7.283061918478466,1177,1041,0,True
+li,1990,lostop,MINov (exact),a_G,5.339737443367385,3000,2793,0,True
+li,1990,lostop,MINov (exact),b_Rnew,5.339737443367385,1177,983,0,True
+li,2000,elmd,1-NN distance,a_G,6.261650742315198,3000,582,0,True
+li,2000,elmd,1-NN distance,b_Rnew,6.261650742315198,753,484,0,True
+li,2000,elmd,KDE (median bw),a_G,5.200798108820945,3000,2109,0,True
+li,2000,elmd,KDE (median bw),b_Rnew,5.200798108820945,753,684,0,True
+li,2000,elmd,MINov (exact),a_G,3.106168520020395,3000,2271,0,True
+li,2000,elmd,MINov (exact),b_Rnew,3.106168520020395,753,719,0,True
+li,2000,lostop,1-NN distance,a_G,5.9719350599826635,3000,2168,0,False
+li,2000,lostop,1-NN distance,b_Rnew,5.9719350599826635,753,583,0,False
+li,2000,lostop,KDE (median bw),a_G,5.064444724530746,3000,2909,0,False
+li,2000,lostop,KDE (median bw),b_Rnew,5.064444724530746,753,704,0,False
+li,2000,lostop,MINov (exact),a_G,3.6196790879502085,3000,2875,0,True
+li,2000,lostop,MINov (exact),b_Rnew,3.6196790879502085,753,697,0,True
+li,2005,elmd,1-NN distance,a_G,5.656762533653867,3000,667,0,True
+li,2005,elmd,1-NN distance,b_Rnew,5.656762533653867,517,359,0,True
+li,2005,elmd,KDE (median bw),a_G,4.1733364286774055,3000,2135,0,True
+li,2005,elmd,KDE (median bw),b_Rnew,4.1733364286774055,517,481,0,True
+li,2005,elmd,MINov (exact),a_G,2.4759287461283837,3000,2499,0,True
+li,2005,elmd,MINov (exact),b_Rnew,2.4759287461283837,517,498,0,True
+li,2005,lostop,1-NN distance,a_G,5.378058186472292,3000,2200,0,False
+li,2005,lostop,1-NN distance,b_Rnew,5.378058186472292,517,399,0,False
+li,2005,lostop,KDE (median bw),a_G,4.126272943705178,3000,2911,0,False
+li,2005,lostop,KDE (median bw),b_Rnew,4.126272943705178,517,497,0,False
+li,2005,lostop,MINov (exact),a_G,2.717005344259901,3000,2902,0,True
+li,2005,lostop,MINov (exact),b_Rnew,2.717005344259901,517,494,0,True
+na,1990,elmd,1-NN distance,a_G,7.748615890862696,3000,706,0,True
+na,1990,elmd,1-NN distance,b_Rnew,7.748615890862696,1740,1152,0,True
+na,1990,elmd,KDE (median bw),a_G,6.665690164775634,3000,1742,0,False
+na,1990,elmd,KDE (median bw),b_Rnew,6.665690164775634,1740,1581,0,False
+na,1990,elmd,MINov (exact),a_G,3.9091431532391585,3000,1878,0,False
+na,1990,elmd,MINov (exact),b_Rnew,3.9091431532391585,1740,1620,0,False
+na,1990,lostop,1-NN distance,a_G,7.525589596132813,3000,2267,0,False
+na,1990,lostop,1-NN distance,b_Rnew,7.525589596132813,1740,1414,0,False
+na,1990,lostop,KDE (median bw),a_G,7.460330491701474,3000,2628,0,True
+na,1990,lostop,KDE (median bw),b_Rnew,7.460330491701474,1740,1639,0,True
+na,1990,lostop,MINov (exact),a_G,4.52099338809912,3000,2468,0,False
+na,1990,lostop,MINov (exact),b_Rnew,4.52099338809912,1740,1593,0,False
+na,2000,elmd,1-NN distance,a_G,6.0365334297968865,3000,921,0,False
+na,2000,elmd,1-NN distance,b_Rnew,6.0365334297968865,1069,786,0,False
+na,2000,elmd,KDE (median bw),a_G,4.510450714878504,3000,1953,0,False
+na,2000,elmd,KDE (median bw),b_Rnew,4.510450714878504,1069,1007,0,False
+na,2000,elmd,MINov (exact),a_G,2.6497316045671404,3000,2282,0,False
+na,2000,elmd,MINov (exact),b_Rnew,2.6497316045671404,1069,1035,0,False
+na,2000,lostop,1-NN distance,a_G,5.676491155864241,3000,2368,0,False
+na,2000,lostop,1-NN distance,b_Rnew,5.676491155864241,1069,902,0,False
+na,2000,lostop,KDE (median bw),a_G,5.004081938881849,3000,2634,0,True
+na,2000,lostop,KDE (median bw),b_Rnew,5.004081938881849,1069,1006,0,True
+na,2000,lostop,MINov (exact),a_G,2.875998656239533,3000,2701,0,False
+na,2000,lostop,MINov (exact),b_Rnew,2.875998656239533,1069,1021,0,False
+na,2005,elmd,1-NN distance,a_G,5.480025065545177,3000,1049,0,False
+na,2005,elmd,1-NN distance,b_Rnew,5.480025065545177,732,599,0,False
+na,2005,elmd,KDE (median bw),a_G,3.7613350435945874,3000,2022,0,False
+na,2005,elmd,KDE (median bw),b_Rnew,3.7613350435945874,732,697,0,False
+na,2005,elmd,MINov (exact),a_G,2.1158927731875146,3000,2400,0,False
+na,2005,elmd,MINov (exact),b_Rnew,2.1158927731875146,732,718,0,False
+na,2005,lostop,1-NN distance,a_G,5.334027112488679,3000,2412,0,False
+na,2005,lostop,1-NN distance,b_Rnew,5.334027112488679,732,637,0,False
+na,2005,lostop,KDE (median bw),a_G,4.081594687455645,3000,2654,0,True
+na,2005,lostop,KDE (median bw),b_Rnew,4.081594687455645,732,691,0,True
+na,2005,lostop,MINov (exact),a_G,2.443218982335198,3000,2715,0,True
+na,2005,lostop,MINov (exact),b_Rnew,2.443218982335198,732,703,0,True
+nitride,1990,elmd,1-NN distance,a_G,8.347002885948466,770,154,0,True
+nitride,1990,elmd,1-NN distance,b_Rnew,8.347002885948466,415,169,0,True
+nitride,1990,elmd,KDE (median bw),a_G,7.387969916382024,770,602,0,True
+nitride,1990,elmd,KDE (median bw),b_Rnew,7.387969916382024,415,302,0,True
+nitride,1990,elmd,MINov (exact),a_G,5.738030417026444,770,593,13,True
+nitride,1990,elmd,MINov (exact),b_Rnew,5.738030417026444,415,290,5,True
+nitride,1990,lostop,1-NN distance,a_G,7.093686454755791,770,569,0,False
+nitride,1990,lostop,1-NN distance,b_Rnew,7.093686454755791,415,285,0,False
+nitride,1990,lostop,KDE (median bw),a_G,6.675224458195108,770,617,0,False
+nitride,1990,lostop,KDE (median bw),b_Rnew,6.675224458195108,415,397,0,False
+nitride,1990,lostop,MINov (exact),a_G,5.303983385890424,770,605,0,True
+nitride,1990,lostop,MINov (exact),b_Rnew,5.303983385890424,415,381,1,True
+nitride,2000,elmd,1-NN distance,a_G,5.675847026156358,770,294,0,True
+nitride,2000,elmd,1-NN distance,b_Rnew,5.675847026156358,208,145,0,True
+nitride,2000,elmd,KDE (median bw),a_G,4.362550971694198,770,680,0,True
+nitride,2000,elmd,KDE (median bw),b_Rnew,4.362550971694198,208,179,0,True
+nitride,2000,elmd,MINov (exact),a_G,2.9809238955076838,770,679,6,True
+nitride,2000,elmd,MINov (exact),b_Rnew,2.9809238955076838,208,188,0,True
+nitride,2000,lostop,1-NN distance,a_G,5.684881074522249,770,604,0,True
+nitride,2000,lostop,1-NN distance,b_Rnew,5.684881074522249,208,182,0,True
+nitride,2000,lostop,KDE (median bw),a_G,4.20359993727163,770,634,0,False
+nitride,2000,lostop,KDE (median bw),b_Rnew,4.20359993727163,208,198,0,False
+nitride,2000,lostop,MINov (exact),a_G,3.0209400563498106,770,681,0,True
+nitride,2000,lostop,MINov (exact),b_Rnew,3.0209400563498106,208,193,0,True
+nitride,2005,elmd,1-NN distance,a_G,5.244470589100686,770,296,0,True
+nitride,2005,elmd,1-NN distance,b_Rnew,5.244470589100686,111,84,0,True
+nitride,2005,elmd,KDE (median bw),a_G,3.414190177736815,770,705,0,True
+nitride,2005,elmd,KDE (median bw),b_Rnew,3.414190177736815,111,106,0,True
+nitride,2005,elmd,MINov (exact),a_G,2.0961770448747323,770,721,2,True
+nitride,2005,elmd,MINov (exact),b_Rnew,2.0961770448747323,111,111,0,True
+nitride,2005,lostop,1-NN distance,a_G,5.0016006549681515,770,622,0,False
+nitride,2005,lostop,1-NN distance,b_Rnew,5.0016006549681515,111,98,0,False
+nitride,2005,lostop,KDE (median bw),a_G,3.344126752589225,770,675,0,False
+nitride,2005,lostop,KDE (median bw),b_Rnew,3.344126752589225,111,106,0,False
+nitride,2005,lostop,MINov (exact),a_G,2.1274272799974066,770,736,0,True
+nitride,2005,lostop,MINov (exact),b_Rnew,2.1274272799974066,111,108,0,True

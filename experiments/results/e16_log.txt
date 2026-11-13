@@ -1,0 +1,29 @@
+[      0s] li: 2095 entries; first_year 1916-2013
+[      9s] li elmd: replay done in 9s, peak RSS 709.6 MB
+[     20s] li lostop: replay done in 11s, peak RSS 825.9 MB
+[     20s] na: 3065 entries; first_year 1913-2013
+[     40s] na elmd: replay done in 20s, peak RSS 1080.6 MB
+[     68s] na lostop: replay done in 28s, peak RSS 1203.8 MB
+[     68s] nitride: 798 entries; first_year 1921-2013
+[     70s] nitride elmd: replay done in 1s, peak RSS 1203.8 MB
+[     71s] nitride lostop: replay done in 2s, peak RSS 1203.8 MB
+[     77s] li elmd Y=1990: counterfactual done in 5s (pool 1177), peak RSS 1203.8 MB
+[     80s] li elmd Y=2000: counterfactual done in 3s (pool 753), peak RSS 1203.8 MB
+[     82s] li elmd Y=2005: counterfactual done in 2s (pool 517), peak RSS 1203.8 MB
+[     89s] li lostop Y=1990: counterfactual done in 7s (pool 1177), peak RSS 1203.8 MB
+[     93s] li lostop Y=2000: counterfactual done in 4s (pool 753), peak RSS 1203.8 MB
+[     95s] li lostop Y=2005: counterfactual done in 3s (pool 517), peak RSS 1203.8 MB
+[    107s] na elmd Y=1990: counterfactual done in 12s (pool 1740), peak RSS 1203.8 MB
+[    114s] na elmd Y=2000: counterfactual done in 7s (pool 1069), peak RSS 1203.8 MB
+[    118s] na elmd Y=2005: counterfactual done in 4s (pool 732), peak RSS 1203.8 MB
+[    134s] na lostop Y=1990: counterfactual done in 16s (pool 1740), peak RSS 1272.2 MB
+[    146s] na lostop Y=2000: counterfactual done in 11s (pool 1069), peak RSS 1289.0 MB
+[    153s] na lostop Y=2005: counterfactual done in 7s (pool 732), peak RSS 1289.0 MB
+[    154s] nitride elmd Y=1990: counterfactual done in 1s (pool 415), peak RSS 1289.0 MB
+[    154s] nitride elmd Y=2000: counterfactual done in 0s (pool 208), peak RSS 1289.0 MB
+[    154s] nitride elmd Y=2005: counterfactual done in 0s (pool 111), peak RSS 1289.0 MB
+[    155s] nitride lostop Y=1990: counterfactual done in 1s (pool 415), peak RSS 1289.0 MB
+[    156s] nitride lostop Y=2000: counterfactual done in 1s (pool 208), peak RSS 1289.0 MB
+[    156s] nitride lostop Y=2005: counterfactual done in 0s (pool 111), peak RSS 1289.0 MB
+[    157s] done; peak RSS 1289.0 MB
+[      1s] done; peak RSS 245.9 MB
