@@ -1,0 +1,49 @@
+[    174s] na fwd Y=2000: {'n_ref': 1996, 'n_G': 3000, 'n_poolb': 1069, 'seconds': 173.6}
+[    299s] na fwd Y=1990: {'n_ref': 1325, 'n_G': 3000, 'n_poolb': 1740, 'seconds': 125.4}
+[    491s] na fwd Y=2005: {'n_ref': 2333, 'n_G': 3000, 'n_poolb': 732, 'seconds': 191.7}
+[    492s] na: reducing 4938 structures (1873 G with a same-anon R row)
+[    502s] reduced in 10s
+[    502s] 958 struct fits, 23633 proto pairs (67481 same-anon before site-count filter)
+[    513s]   200/615 chunks
+[    518s]   400/615 chunks
+[    522s]   600/615 chunks
+   chem     Y                  pool        family       score  metric     n  novel_rate_Y  novel_rate_F  flip_rate  n_flip  n_novel_to_not  n_not_to_novel  coverage90  median_width_frac
+0    na  2000                   a_G   exact match        comp       -  3000         1.000         1.000      0.000       0               0               0         NaN                NaN
+1    na  2000                b_Rnew   exact match        comp       -  1069         0.942         0.942      0.000       0               0               0         NaN                NaN
+2    na  2000  b_Rnew_keep_siblings   exact match        comp       -  1069         0.942         0.865      0.077      82              82               0         NaN                NaN
+3    na  2000                   a_G   exact match       proto       -  3000         0.871         0.819      0.052     157             157               0         NaN                NaN
+4    na  2000                b_Rnew   exact match       proto       -  1069         0.726         0.492      0.234     250             250               0         NaN                NaN
+5    na  2000  b_Rnew_keep_siblings   exact match       proto       -  1069         0.726         0.488      0.238     254             254               0         NaN                NaN
+6    na  2000                   a_G   exact match      struct       -  3000         1.000         1.000      0.000       0               0               0         NaN                NaN
+7    na  2000                b_Rnew   exact match      struct       -  1069         0.992         0.992      0.000       0               0               0         NaN                NaN
+8    na  2000  b_Rnew_keep_siblings   exact match      struct       -  1069         0.992         0.977      0.015      16              16               0         NaN                NaN
+9    na  2000                   a_G  density / NN        1-NN    elmd  3000         0.556         0.539      0.085     254             152             102       0.647              0.159
+10   na  2000                b_Rnew  density / NN        1-NN    elmd  1069         0.109         0.048      0.088      94              80              14       0.401              0.214
+11   na  2000                   a_G  density / NN        1-NN  lostop  3000         0.103         0.127      0.050     151              39             112       0.500              0.123
+12   na  2000                b_Rnew  density / NN        1-NN  lostop  1069         0.080         0.046      0.057      61              49              12       0.372              0.158
+13   na  2000                   a_G  density / NN  median KDE    elmd  3000         0.227         0.233      0.011      34               8              26       0.226              0.015
+14   na  2000                b_Rnew  density / NN  median KDE    elmd  1069         0.038         0.040      0.002       2               0               2       0.109              0.041
+15   na  2000                   a_G  density / NN  median KDE  lostop  3000         0.043         0.060      0.018      54               1              53       0.465              0.021
+16   na  2000                b_Rnew  density / NN  median KDE  lostop  1069         0.022         0.026      0.007       8               2               6       0.255              0.030
+17   na  2000                   a_G  density / NN       MINov    elmd  3000         0.388         0.451      0.063     188               0             188       0.725              0.042
+18   na  2000                b_Rnew  density / NN       MINov    elmd  1069         0.031         0.036      0.005       5               0               5       0.627              0.060
+19   na  2000                   a_G  density / NN       MINov  lostop  3000         0.078         0.093      0.017      50               2              48       0.661              0.045
+20   na  2000                b_Rnew  density / NN       MINov  lostop  1069         0.053         0.048      0.006       6               6               0       0.424              0.043
+      525.89 real       558.01 user        19.29 sys
+          1690009600  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              774446  page reclaims
+                8989  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   1  messages sent
+                   1  messages received
+                   1  signals received
+                3683  voluntary context switches
+              116656  involuntary context switches
+           111820257  instructions retired
+            43046267  cycles elapsed
+            11190976  peak memory footprint

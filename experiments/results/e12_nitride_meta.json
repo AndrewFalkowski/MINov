@@ -1,0 +1,40 @@
+{
+ "fwd": {
+  "years": {
+   "2000": {
+    "n_ref": 590,
+    "n_G": 770,
+    "n_poolb": 208,
+    "seconds": 14.6
+   },
+   "1990": {
+    "n_ref": 383,
+    "n_G": 770,
+    "n_poolb": 415,
+    "seconds": 10.3
+   },
+   "2005": {
+    "n_ref": 687,
+    "n_G": 770,
+    "n_poolb": 111,
+    "seconds": 19.4
+   }
+  },
+  "peak_rss_self_MB": 393.7,
+  "peak_rss_children_MB": 0.0
+ },
+ "match": {
+  "n_reduced": 1417,
+  "n_struct_fits": 222,
+  "n_proto_pairs": 17307,
+  "n_proto_same_anon_pairs": 45872,
+  "n_fitted": 17529,
+  "n_jobs": 17529,
+  "budget_cut": false,
+  "n_timeouts": 0,
+  "seconds": 43.4,
+  "peak_rss_self_MB": 450.7,
+  "peak_rss_children_MB": 262.0
+ },
+ "run_fwd_match_analyze_seconds": 88.9
+}

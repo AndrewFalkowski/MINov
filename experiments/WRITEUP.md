@@ -1,17 +1,24 @@
 # Uncertainty in reference-relative novelty: experiment write-up
 
-Branch `uncertainty-experiments`. Every headline number below was recomputed independently from the scripts' outputs or from the raw distance matrices. Scope: Li-containing compounds only.
+Branch `uncertainty-experiments`. Every headline number below was recomputed independently from the scripts' outputs or from the raw distance matrices. Scope: Li-containing compounds, with the core forward test replicated on Na compounds and ternary nitrides (section 4).
 
 ## Bottom line
 
 Novelty is always relative to a reference set, and reference sets are incomplete. The simplest defensible contribution is to measure how much an incomplete reference can change novelty calls, and to report novelty with that uncertainty attached:
 
-1. **MINov's novelty calls hold up when the reference grows.** Novelty was scored against the experimental Li compounds known in 2000 and then against the full record. MINov's novel/not-novel call changed for **0.7–2.4%** of candidates. Nearest-neighbour novelty, the form most used in the field, changed for **2.5–10.4%**: about **15× more often** for real later discoveries under ElMD.
-2. **The usual way of estimating uncertainty is overconfident.** Nominal 90% rank intervals from random reference subsampling contained the realized future rank only **11–86%** of the time. Fine ranks are not meaningful at scale: 88–91% of adjacent MINov ranks swap if a single reference material is removed. Report calls and coarse tiers, not ranks.
-3. **Global and local novelty are different quantities, and kernel width decides which one you measure.** MINov's median cutoff gives a stable, global measure. Narrow kernels and nearest-neighbour distance are local, more sensitive and less stable. No single width gives both.
-4. **Analogue vacancy characterises how a generator's novelty differs.** GNoME candidates sit in substitution families that experiment has not explored. They are about 100× more "vacant" than real later discoveries (AUC 0.96 vs MP). This holds with either reference, but vacancy does not predict where experiments go next.
+1. **MINov's novelty calls hold up when the reference grows.** Novelty was scored against the experimental Li compounds known in 2000 and then against the full record. MINov's novel/not-novel call changed for **0.7–2.4%** of candidates. Nearest-neighbour novelty, the form most used in the field, changed for **2.5–10.4%**: about **15× more often** for real later discoveries under ElMD. MINov changes less often than 1-NN in all 36 combinations of chemistry (Li, Na, ternary nitrides), split year, candidate pool and distance. The margin narrows for GNoME candidates under ElMD in Na and nitrides (1.2–1.4×).
+2. **Exact-match novelty ("not in the reference") looks perfectly stable only because it is blind.** Matching by composition or by structure (StructureMatcher, as used in S.U.N. benchmarks) never flipped in the forward test: it can only change if the identical formula appears. Its real uncertainty lies elsewhere:
+   - A 2× change in matcher tolerance alone almost doubles the number of structure matches.
+   - The choice of reference database matters even more.
+   - The species-agnostic "prototype" version (substitution-based novelty) is the most fragile measure tested: 19.5–25% of later discoveries flipped across the three chemistries.
+3. **The usual way of estimating uncertainty is overconfident.** Nominal 90% rank intervals from random reference subsampling contained the realized future rank only **11–86%** of the time. Fine ranks are not meaningful at scale: 88–91% of adjacent MINov ranks swap if a single reference material is removed. Report calls and coarse tiers, not ranks.
+4. **Global and local novelty are different quantities, and kernel width decides which one you measure.** MINov's median cutoff gives a stable, global measure. Narrow kernels and nearest-neighbour distance are local, more sensitive and less stable. No single width gives both.
+5. **Analogue vacancy characterises how a generator's novelty differs.** GNoME candidates sit in substitution families that experiment has not explored. They are about 100× more "vacant" than real later discoveries (AUC 0.96 vs MP). This holds with either reference, but vacancy does not predict where experiments go next.
 
-Two ideas failed their forward tests and are dropped. Plausibility-weighted de-novelling ("P(stays novel)") was no better than the plain density margin. Removal fragility did not predict which ranks actually changed, because the future adds materials, and a removal analysis cannot see that direction.
+Three ideas failed and are dropped:
+- **Plausibility-weighted de-novelling ("P(stays novel)"):** no better than the plain density margin.
+- **Removal fragility as a forecast:** it did not predict which ranks actually changed, because the future adds materials, and a removal analysis cannot see that direction.
+- **Abramson adaptive bandwidth:** it moved MINov along the existing trade-off rather than past it, and made ElMD calls flip about 4× more often.
 
 ## Data
 
@@ -95,13 +102,40 @@ V = log((E + 0.5)/(O + 0.5)). E is how many of a material's plausible substituti
 - **Robustness:** vacancy survives cross-fitting, controls for analogue count and number of elements, removing f-block elements, and a falsification test (MP split against itself: AUC 0.50).
 - **What it measures:** departure from explored chemical families. That is a useful way to characterise a generator's output. It is not a predictor of discovery.
 
-### 4. What did not work
+### 4. Exact-match novelty and two more chemistries (E10, E12)
+
+The forward test was repeated for exact-match novelty and on two new chemistries built from the same MP and GNoME data: Na compounds (3,065 experimental references, 3,000 GNoME candidates) and ternary nitrides (three elements including N, no O/H/C; 798 references, 770 candidates).
+
+![Figure 4: call flips by chemistry and metric](results/e12_flip_rates.png)
+
+*Figure 4. Share of candidates whose novelty call changed between the 2000 reference and the full record, by chemistry. Top: GNoME candidates. Bottom: compounds reported after 2000. Left and centre: density and nearest-neighbour scores. Right: exact match by composition, structure (StructureMatcher defaults) and prototype (species-agnostic structure type).*
+
+- **Density vs nearest neighbour:**
+  - MINov changes less often than 1-NN in every case.
+  - The gap is large for later discoveries (Na ElMD: 0.5% vs 8.8%) but small for GNoME under ElMD in Na and nitrides (6.3% vs 8.5%, 7.9% vs 9.6%), where many candidates sit near the threshold.
+  - The median-bandwidth Gaussian KDE is the most stable everywhere (≤ 1.8%).
+- **Interval coverage:** nominal 90% intervals undercover in every chemistry (11–86% at Y = 2000).
+- **Exact composition and structure match:**
+  - Never changed for GNoME, because no GNoME formula appears in experimental MP.
+  - For later discoveries the design removes their same-formula siblings from the future reference. With those siblings kept, composition match flips for 4.8–8.2% and structure match for up to 1.5%.
+- **Matcher tolerance (Li):**
+  - Halving or doubling all StructureMatcher tolerances changes the number of matching same-formula pairs from 40 to 56 to 103 (of 628).
+  - Prototype-novelty rates move by up to 6 points.
+  - For structure match, a 2× looser tolerance changes novelty about as much as 30 years of reference growth.
+- **Prototype match:** flips for 1.3–7.1% of GNoME candidates and 19.5–25% of later discoveries. Discoveries arrive in families that share a structure type.
+
+### 5. What did not work
 
 - **P(stays novel), from plausibility-weighted additions (E2, E7):**
   - Discriminated surviving novelty calls worse than the plain density margin in all 17 evaluable cells (e.g. AUC 0.72 vs 0.985).
   - The substitution-based existence calibration underpredicts survival for GNoME and overpredicts it for real discoveries.
 - **Removal fragility as a forecast of future change (E7):** see section 1. It remains a useful measure of robustness, but not a forecast.
 - **Coverage estimators (Good-Turing, Chao; E3):** predict random additions within ~2%, but underpredict the novelty of generated candidates 2–18×.
+- **Abramson adaptive bandwidth (E11):**
+  - Scaling each reference's kernel by (pilot density / geometric mean)^(−1/2), with MINov as the pilot, adds no tuned parameter.
+  - But it only slides MINov along the existing trade-off, to about where a fixed q ≈ 0.3 kernel sits.
+  - It never lands above the frontier (gap −0.004 to −0.014), and it raises ElMD call flips from about 1% to about 4%.
+  - A fully local MINov is degenerate (every point gets the same density), so any useful local adaptation needs some pooling, and with it a choice.
 - **Near-duplicates (E5):** did not explain nearest-neighbour instability. The low intrinsic dimension of the data (1.6–2.4) likely does.
 
 ## Related work: novelty metrics in use and their exposure to reference uncertainty
@@ -124,15 +158,12 @@ No work was found that reports removal or addition fragility, rank intervals, ma
 
 ## Limitations
 
-- **Scope:** one chemistry (Li). The first-report year is a literature proxy, and "later" means newer, not necessarily novel.
+- **Scope:** Li for most analyses; the core forward test is replicated on Na and ternary nitrides (the nitride later-discovery pool is small: 208 compounds at Y = 2000). The first-report year is a literature proxy, and "later" means newer, not necessarily novel.
+- **GNoME removals:** 22–43% of December-2023 GNoME entries in each chemistry have since been removed from the release and have no structure, so they are excluded.
 - **Ground truth:** there is none for global novelty in real data. The forward test validates robustness of calls, not whether they are correct.
 - **Greedy counts:** removal counts are upper bounds.
 - **Substitution model:** the analogue generator is element-level, ignores structure, and uses exact formula matching.
 - **Coverage:** forward-test coverage is limited to MP's experimental record; GNoME's "future" there is narrow.
-
-## Possible next step (optional)
-
-An adaptive-bandwidth variant without a new free parameter: Abramson's square-root rule, using MINov itself as the pilot density. It could close part of the global/local gap. It can be tested on the existing E1b/E9 setup. A fully local version of MINov is degenerate: every point gets the same density, because its weights become rank-based. Any local adaptation therefore has to pool information across neighbours.
 
 ## Reproduce
 
@@ -140,7 +171,8 @@ An adaptive-bandwidth variant without a new free parameter: Abramson's square-ro
 2. `uv run python experiments/build_li_sets.py` builds the Li sets and distance matrices in `data/raw/processed/` (~20 min).
 3. Run the experiments with `uv run python experiments/<script>.py`:
    - on the original data: `e1_reference_stability`, `e1b_stability_sensitivity`, `e2_denovelling`, `e3_coverage`, `e4_rank_uncertainty`, `e5_kernel_shape`, `e6_analogue_vacancy`
-   - on the rebuilt data: `e7_fragility_forward`, `e8_vacancy_forward`, `e9_two_scale_transfer`
+   - on the rebuilt data: `e7_fragility_forward`, `e8_vacancy_forward`, `e9_two_scale_transfer`, `e10_exact_match`, `e11_abramson`
+   - new chemistries: `build_chem_sets.py` builds the Na and ternary-nitride sets in `data/raw/processed_na/` and `processed_nitride/` (~25 min), then `e12_new_chemistries` runs the forward test on them
 
 Each takes 1–65 min. Results go to `experiments/results/`; figures are the `*.png` files there.
 
