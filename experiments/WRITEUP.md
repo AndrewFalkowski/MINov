@@ -46,6 +46,10 @@ A useful identity: for a symmetric distance matrix the MI profile equals the bin
 | **Realized call flips, 2000 → full record (E7)** | **0.7–2.4%** | **2.5–10.4%** | GNoME: 1.1% vs 5.6% (ElMD), 0.8% vs 2.5% (LoStOP). Later discoveries: 0.7% vs 10.4%, 2.4% vs 5.6% |
 | Nominal 90% rank-interval coverage of the realized rank (E7) | 0.35–0.86 | 0.42–0.55 | Median-bandwidth KDE: 0.11–0.41 |
 
+![Figure 1: call flips and interval coverage in the forward test](results/report_fig1_forward.png)
+
+*Figure 1. Left: share of candidates whose novel/not-novel call changed when the reference grew from the compounds known in 2000 to the full experimental record. Right: how often the nominal 90% rank interval from random reference subsampling contained the rank the candidate actually ended up with. The dashed line marks the nominal 90%.*
+
 **Fine ranks are not robust:**
 - **Swaps:** 88–91% of adjacent MINov rank pairs swap with a single removal, at 3,000 candidates.
 - **Tiers:** of the two ways of grouping ranks into tiers, overlapping intervals chain into 4–5 blocks; walking down the ranking gives about 50 usable tiers.
@@ -68,6 +72,10 @@ A useful identity: for a symmetric distance matrix the MI profile equals the bin
   - Rank-averaging MINov with a narrow MI kernel beats the stability–sensitivity frontier on both the original and the larger reference (+0.02 to +0.06 stability at equal sensitivity, CIs exclude 0, except 100-NN holes in ElMD).
   - It adds a second width and a mixing weight. Treat it as a diagnostic rather than a recommended method.
 
+![Figure 2: stability against local sensitivity across kernel widths](results/report_fig2_tradeoff.png)
+
+*Figure 2. Each point on the grey curve is an MI kernel of a different width, from narrow (left) to MINov's median cutoff (right). Top: sensitivity to a local gap (how much a compound's novelty rises when its 20 nearest neighbours are removed). Bottom: how well the score separates compounds reported after 2000 from those already known (0.5 = chance). This measures newness and local isolation, not global novelty. Wider kernels are more stable and less locally sensitive.*
+
 ### 3. Analogue vacancy (E6, E8)
 
 V = log((E + 0.5)/(O + 0.5)). E is how many of a material's plausible substitution analogues (Hautier-style odds) the calibration expects to be present in the reference; O is how many actually are. Higher V means more vacant.
@@ -79,6 +87,10 @@ V = log((E + 0.5)/(O + 0.5)). E is how many of a material's plausible substituti
 | Compounds reported after Y vs before (Y = 1990 / 2000 / 2005) | 0.73 / 0.71 / 0.69 |
 | GNoME vs real later discoveries | 0.92 |
 | Vacancy at Y predicts an analogue being reported later | 0.35 (reversed: populated families fill, vacant families stay vacant) |
+
+![Figure 3: analogue vacancy against MINov density](results/e6_vacancy_vs_density.png)
+
+*Figure 3 (from E6, the 44 published GNoME candidates). Analogue vacancy against MINov density for MP compounds (grey, leave-one-out) and GNoME candidates (blue). Vacancy separates GNoME from MP along an axis density does not capture. Right: in the falsification test, MP split against itself (grey) sits at AUC 0.5, while GNoME (blue) sits near 0.93.*
 
 - **Robustness:** vacancy survives cross-fitting, controls for analogue count and number of elements, removing f-block elements, and a falsification test (MP split against itself: AUC 0.50).
 - **What it measures:** departure from explored chemical families. That is a useful way to characterise a generator's output. It is not a predictor of discovery.
@@ -131,3 +143,5 @@ An adaptive-bandwidth variant without a new free parameter: Abramson's square-ro
    - on the rebuilt data: `e7_fragility_forward`, `e8_vacancy_forward`, `e9_two_scale_transfer`
 
 Each takes 1–65 min. Results go to `experiments/results/`; figures are the `*.png` files there.
+
+4. `uv run python experiments/make_report_figures.py` redraws Figures 1 and 2 from the E7 and E9 outputs.
