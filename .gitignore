@@ -139,3 +139,4 @@ data/raw/
 # Regenerable experiment caches
 experiments/results/*_cache.npz
 experiments/results/e15_scores.npz
+experiments/results/e18_*_scores.npz

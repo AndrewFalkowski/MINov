@@ -6,14 +6,19 @@ Branch `uncertainty-experiments`. Every headline number below was recomputed ind
 
 Novelty is always relative to a reference set, and reference sets are incomplete. The simplest defensible contribution is to measure how much an incomplete reference can change novelty calls, and to report novelty with that uncertainty attached:
 
-1. **Which database counts as "known" is the largest source of novelty uncertainty.** Swapping the reference from experimental MP-2023 to another plausible choice (adding MP-2025's new entries, adding other GNoME predictions, or including MP's theoretical entries) changed **28–41%** of MINov's composition (ElMD) calls on GNoME candidates. That is **25–36×** the change caused by 30 years of reference growth. Size-matched controls give the same rates, so it is the content of the reference, not its size. Every score is affected (1-NN 23–57%, median-bandwidth KDE 8–18%). MINov's *ranking* mostly holds (Spearman 0.75–0.93); its *calls* move because the 5% threshold is set by the reference's own members, and the median GNoME candidate sits almost exactly on it. Structure (LoStOP) calls are much less sensitive (MINov 1.9–2.2%, 1-NN 13–14%). Any novelty claim should name its reference database (E15).
+1. **Which database counts as "known" is a major source of novelty uncertainty, and how major depends on how many candidates sit near the threshold.** Swapping the reference from experimental MP-2023 to another plausible choice (adding MP-2025's new entries, adding other GNoME predictions, or including MP's theoretical entries) changed MINov's composition (ElMD) calls on GNoME candidates by **28–41% in Li and 3–36% in Na, but only 2–9% in ternary nitrides**. For real Li discoveries after 2000 it changed **5–10%** (E15, E18, E19).
+   - **Why it varies:** the median GNoME candidate sits at the 5.7th (Li) and 6.3th (Na) percentile of the reference, right on the 5% line, but at the 41st in nitrides. GNoME reweighted to the real discoveries' distance from the threshold changes about as often as they do (3.7–4.3% vs 4.6–7.8%).
+   - **Relative to growth:** choice outweighs 30 years of reference growth for MINov in Li (7–15× for real discoveries, 25–36× for GNoME) and Na (3.6–5.8×, except the theoretical-entry swap), but not in nitrides composition (0.2–1.1×), where growth itself moved the threshold.
+   - **Holds everywhere:** the content of the reference matters, not its size (size-matched subsets give the same rates); adding generated predictions only removes novelty; 1-NN calls change a lot in every chemistry (16–61% composition, 10–15% structure); rankings move less than calls.
+   - **Structure (LoStOP):** MINov calls change 2% in Li, 6–7% in Na and nitrides, and 9% for real Li discoveries.
+   - **Recommendation:** name the reference database, report how many candidates sit near the threshold, and report calls alongside rankings within the candidate pool (rankings were more robust for GNoME, threshold calls for real discoveries).
 2. **MINov's novelty calls hold up when the reference grows.** Novelty was scored against the experimental Li compounds known in 2000 and then against the full record. MINov's novel/not-novel call changed for **0.7–2.4%** of candidates. Nearest-neighbour novelty, the form most used in the field, changed for **2.5–10.4%**: about **15× more often** for real later discoveries under ElMD. MINov changes less often than 1-NN in all 36 combinations of chemistry (Li, Na, ternary nitrides), split year, candidate pool and distance. The margin narrows for GNoME candidates under ElMD in Na and nitrides (1.2–1.4×). MINov is not the most stable score: the median-bandwidth Gaussian KDE flips less, especially for Na and nitride ElMD.
 3. **Exact-match novelty ("not in the reference") is stable to reference growth because it only registers identical compounds.** Matching by composition or by structure (StructureMatcher, as used in S.U.N. benchmarks) answers a narrower question, "has this exact compound been reported?", and does not respond when close analogues are added. It never flipped in the forward test, partly by design: no GNoME formula is in experimental MP, and later discoveries' same-formula siblings were removed. With those siblings kept, composition match flips for 4.8–8.2%. Its apparent stability reflects low resolution, not robustness, and its real uncertainty lies elsewhere:
    - A 2× change in matcher tolerance alone almost doubles the number of structure matches.
    - The choice of reference database matters even more.
    - The species-agnostic "prototype" version (substitution-based novelty) is the most fragile measure tested: 19.5–25% of later discoveries flipped across the three chemistries.
 4. **The usual way of estimating uncertainty is overconfident.** Nominal 90% rank intervals from random reference subsampling contained the realized future rank only **11–86%** of the time. Fine ranks are not meaningful at scale: 88–91% of adjacent MINov ranks swap if a single reference material is removed. Report calls and coarse tiers, not ranks.
-5. **A simple margin band labels which calls are reliable as the reference grows, but not across reference choices.** Mark a call "uncertain" when the candidate's score lies within a few percentile points of the 5% threshold (calibrated on Li, Y = 2000: 1.26 points for MINov, 2.49 for KDE). Applied to other split years and chemistries, confident calls then flipped ≤ 1% in 23/32 test cells for MINov (every Na and Li 2005 cell) with 6% of calls labelled uncertain, and in 29/32 for KDE with 10%. 1-NN needs 30–40% uncertain and can never make a confident novel call. The band fails where the reference was small (ternary nitrides at 1990/2000, 383–687 entries), where later additions filled sparse regions and the threshold rose 3.9×. It catches only 7–9% of the call changes caused by switching reference database (E13, E15b).
+5. **A simple margin band labels which calls are reliable as the reference grows, but not across reference choices.** Mark a call "uncertain" when the candidate's score lies within a few percentile points of the 5% threshold (calibrated on Li, Y = 2000: 1.26 points for MINov, 2.49 for KDE). Applied to other split years and chemistries, confident calls then flipped ≤ 1% in 23/32 test cells for MINov (every Na and Li 2005 cell) with 6% of calls labelled uncertain, and in 29/32 for KDE with 10%. 1-NN needs 30–40% uncertain and can never make a confident novel call. The band fails where the reference was small (ternary nitrides at 1990/2000, 383–687 entries), where later additions filled sparse regions and the threshold rose 3.9×. It catches only 7–9% of the Li call changes caused by switching reference database, and 23–78% in Na and nitrides (E13, E15b, E18).
 6. **Global and local novelty are different quantities, and kernel width decides which one you measure.** MINov's median cutoff gives a stable, global measure. Narrow kernels and nearest-neighbour distance are local, more sensitive and less stable. No single width gives both.
 7. **Analogue vacancy characterises how a generator's novelty differs.** GNoME candidates sit in substitution families that experiment has not explored. They are about 100× more "vacant" than real later discoveries (AUC 0.96 vs MP). This holds with either reference, but vacancy does not predict where experiments go next.
 
@@ -24,7 +29,7 @@ Six ideas failed and are dropped:
 - **Removal fragility as a forecast:** it did not predict which ranks actually changed, because the future adds materials, and a removal analysis cannot see that direction.
 - **Abramson adaptive bandwidth:** it moved MINov along the existing trade-off rather than past it, and made ElMD calls flip about 4× more often.
 - **Threshold rarefaction as an early warning:** thinning the reference at random just scales sum-type thresholds with size, so it cannot see the sparse regions later additions fill. Reference size alone flags the failing cells as well (E13b).
-- **An absolute novelty threshold ("fewer than k known analogues"):** no k makes calls robust to the choice of reference, and it is less stable under growth than the relative rule (E17). What changes between references is the definition of "known", which no calling rule removes; ranking within the candidate pool is the more robust option.
+- **An absolute novelty threshold ("fewer than k known analogues"):** no k makes calls robust to the choice of reference, and it is less stable under growth than the relative rule (E17). What changes between references is the definition of "known", which no calling rule removes.
 - **Novelty as a model-error signal beyond ensemble spread:** for random forests on three property datasets, novelty added at most +0.13 partial correlation with absolute error beyond the tree spread, never improved detection of the worst 10% of errors, and only slightly lowered interval coverage in the most novel tercile (E14).
 
 ## Data
@@ -131,22 +136,44 @@ The forward test was repeated for exact-match novelty and on two new chemistries
   - For structure match, a 2× looser tolerance changes novelty about as much as 30 years of reference growth.
 - **Prototype match:** flips for 1.3–7.1% of GNoME candidates and 19.5–25% of later discoveries. Discoveries arrive in families that share a structure type.
 
-### 5. Reference choice (E15, E15b)
+### 5. Reference choice (E15, E15b, E17, E18, E19)
 
 The Li candidates (3,000 GNoME) were scored against four references: A, experimental MP-2023 (2,095 entries, the baseline everywhere else); B, A plus the 2,360 entries MP-2025 added (largely GNoME imports, so the 372 candidates imported into MP-2025 were excluded); C, A plus a separate 3,000-sample of current GNoME; D, all 21,761 MP-2023 Li entries including theoretical ones (ElMD only). Size-matched controls draw a subset of B, C or D the size of A. The new code reproduces E7's calls on A exactly.
 
-![Figure 5: novelty calls that change when the reference database is swapped](results/e15_call_changes.png)
+E18 repeated this for Na (A = 3,065 experimental entries; B adds 1,794, C 3,000, D = 12,873 entries) and ternary nitrides (A = 798; B adds 408, C 328, D = 3,456), with candidates excluded where they were imported into MP-2025 (21% in Na, 28% in nitrides). On A the code reproduces E12's calls exactly in both chemistries.
 
-*Figure 5. Share of GNoME candidates whose novel/not-novel call changes when the reference is swapped from experimental MP-2023 to another database. "Size of A" bars use a random subset of the same size as A (mean of 10 draws, whiskers min–max). The right-most group in each panel is the change from 30 years of reference growth (E7), for scale.*
+![Figure 5: novelty calls that change when the reference database is swapped, by chemistry](results/e18_call_changes.png)
+
+*Figure 5. Share of GNoME candidates whose novel/not-novel call changes when the reference is swapped from experimental MP-2023 to another database, for Li (top), Na and ternary nitrides (bottom). "Size of A" bars use a random subset of the same size as A (mean of 10 draws, whiskers min–max). The right-most group in each panel is the change from reference growth between 2000 and the full record (E7/E12), for scale.*
+
+| MINov, composition (ElMD) | + MP-2025 additions (B) | + other GNoME (C) | all MP-2023 (D) | Growth 2000 → full | Median candidate percentile under A |
+|---|---|---|---|---|---|
+| Li, GNoME | 34.8% | 41.2% | 27.8% | 1.1% | 5.7 |
+| Na, GNoME | 22.6% | 36.2% | 2.9% | 6.3% | 6.3 |
+| Nitrides, GNoME | 2.7% | 1.6% | 9.1% | 7.9% | 40.9 |
+| Li, real discoveries after 2000 (E19) | 4.6% | 7.8% | 10.5% | 0.7% | 59.3 |
+| Li, GNoME reweighted to the discoveries' margins (E19) | 3.7% | 4.3% | 18.0% | 0.5% | – |
 
 - **Content, not size:** the size-matched subsets change calls as often as the full references (MINov ElMD 34.7% vs 34.8% for B). Growing a reference of the same mix (subset → full) changes under 1%.
 - **Direction:** adding B or C only turns novel into not novel (MINov ElMD: 915 and 1,235 such changes, none the other way). Adding MP's theoretical entries (D) does the opposite (796 not→novel vs 38), because the many polymorph entries raise the reference's own density and hence the threshold. About half of D's effect is polymorph multiplicity (formula-only version: MINov 13.9%).
 - **Ranking vs calls:** MINov's order of candidates mostly holds (Spearman 0.93 / 0.75 / 0.88 for B / C / D under ElMD; 1-NN 0.56 / 0.22 / 0.91). Holding the number of novel calls fixed, only 6–14% of MINov's calls change; the rest is the threshold moving.
 - **Why the threshold moves:** "novel" means "less dense than 95% of the reference's own members". The median GNoME candidate sits at the 5.7th percentile under A (ElMD), so any change in who the reference members are moves many candidates across the line.
 - **Consensus:** of the 50.6% of candidates MINov calls novel under A (ElMD), only 6.5% are novel under all four references. Calling the top 10% of the candidate pool novel instead (no reference threshold) keeps 21% of MINov's set across all references, 72% of KDE's and 7% of 1-NN's.
-- **Margin band (E13):** the growth-calibrated band contains only 7–9% of MINov's ElMD call changes from swapping references; covering 90% of them would need a band of 4–14 points, i.e. nearly every novel call.
+- **Margin band (E13):** the growth-calibrated band contains only 7–9% of MINov's Li ElMD call changes from swapping references; covering 90% of them would need a band of 4–14 points, i.e. nearly every novel call. In Na and nitrides it contains 23–78% (E18).
 - **A fixed threshold does not help (E17):** calling a candidate novel when its MINov density is below a fixed k ("fewer than k effective known analogues") removes the threshold's movement but not the content effect. Under B or C candidates gain real neighbours, so at any k that calls ≥ 10% of GNoME novel nearly all of those calls are lost (MINov ElMD, A's threshold frozen as k: 49.9% / 48.8% changed vs 34.8% / 41.2% for the relative rule). It also makes growth flips 1.5–7× larger for MINov and KDE. At k ≤ 5 almost nothing is novel (a typical candidate has ~80 effective ElMD neighbours and ~330 LoStOP ones within the median cutoff).
-- **Structure is more robust:** under LoStOP, MINov changes 1.9–2.2% of calls (1-NN 13–14%, KDE 1.3–1.4%), though few candidates are structurally novel to begin with (3.4% under A).
+- **Structure:** under LoStOP, MINov changes 1.9–2.2% of Li calls (1-NN 13–14%, KDE 1.3–1.4%), though few candidates are structurally novel to begin with (3.4% under A). In Na and nitrides MINov changes 5.5–6.8%, and in nitrides structure calls are more sensitive than composition calls.
+- **Other chemistries (E18):** what replicates is the direction (adding MP-2025 entries or GNoME predictions only removes novelty; MP's theoretical entries mostly add it), the size-matched controls (content, not size), 1-NN's large changes (16–46% composition, 11–14% structure), and that ranking within the pool is more robust than the threshold call. What does not replicate is the magnitude: it tracks how many candidates sit near the threshold (share between the 2.5th and 10th percentile: Li 21%, Na 32%, nitrides 13%; only 6.6% of nitride candidates are novel under A).
+
+**Real discoveries (E19).** The Li forward-test setup was reused: reference A_2000 = experimental compounds known by 2000, candidates = the 753 reported after 2000 (and the GNoME candidates scored against the same references), and B, C, D built by adding the same entries to A_2000. Scores and thresholds reproduce E7's to ≤ 3e-13.
+
+![Figure 5b: reference swap for real later discoveries vs GNoME](results/e19_call_changes.png)
+
+*Figure 5b. Call changes when the reference A_2000 is swapped, for real later discoveries (solid), GNoME candidates (light) and GNoME reweighted to the later discoveries' distances from the threshold (hatched). Right-most group: change from reference growth (E7).*
+
+- **Smaller but real:** MINov changes 4.6–10.5% of real discoveries' composition calls and 8.6–9.0% of their structure calls, 7–15× and 3.6× their growth flips. Choice exceeds growth in 15 of 16 score × metric × swap cells (the exception: 1-NN composition under B and C).
+- **Mostly a near-threshold effect for GNoME composition:** reweighting GNoME to the discoveries' margins brings MINov from 36.8% to 3.7% (A → B) and 1-NN from 43.9% to 12.5%. It does not for D, for KDE, or for structure, where real discoveries change more than reweighted GNoME.
+- **Opposite direction:** GNoME candidates lose novelty when predictions are added; real discoveries just above the threshold gain it (MINov composition, B: 13 novel→not, 22 not→novel). Only candidates within about 20 points of the threshold change, except under D.
+- **Consensus:** for real discoveries the threshold call survives across references better than a top-k ranking (MINov retention 0.56 composition, 0.88 structure), the reverse of GNoME.
 
 ### 6. A margin band for reliable calls (E13, E13b)
 
@@ -239,7 +266,7 @@ No work was found that reports removal or addition fragility, rank intervals, ma
 - **Greedy counts:** removal counts are upper bounds.
 - **Substitution model:** the analogue generator is element-level, ignores structure, and uses exact formula matching.
 - **Coverage:** forward-test coverage is limited to MP's experimental record; GNoME's "future" there is narrow.
-- **Reference choice (E15):** Li only, with four references. The 5% leave-one-out threshold makes "known" mean "as dense as the reference's own members", so part of the effect belongs to that calling rule rather than to the score.
+- **Reference choice (E15, E18, E19):** three chemistries for GNoME candidates, Li only for real discoveries; four references, and the added sets are GNoME-like, so for real discoveries this tests "known = also computational predictions" rather than a second experimental database. The 5% leave-one-out threshold makes "known" mean "as dense as the reference's own members", so part of the effect belongs to that calling rule rather than to the score.
 - **Margin band (E13):** calibrated on one chemistry and year; the calibration rests on about 80 flips per score.
 - **Model error (E14):** one model family (random forest) with a conservative σ, three datasets.
 
@@ -251,7 +278,7 @@ No work was found that reports removal or addition fragility, rank intervals, ma
    - on the original data: `e1_reference_stability`, `e1b_stability_sensitivity`, `e2_denovelling`, `e3_coverage`, `e4_rank_uncertainty`, `e5_kernel_shape`, `e6_analogue_vacancy`
    - on the rebuilt data: `e7_fragility_forward`, `e8_vacancy_forward`, `e9_two_scale_transfer`, `e10_exact_match`, `e11_abramson`
    - new chemistries: `build_chem_sets.py` builds the Na and ternary-nitride sets in `data/raw/processed_na/` and `processed_nitride/` (~25 min), then `e12_new_chemistries` runs the forward test on them
-   - after E7 and E12: `e13_margin_rule`, then `e13b_rarefaction`; `e15_reference_choice`, then `e15b_consensus_margin` and `e17_absolute_rule`; `e16_history_replay`
+   - after E7 and E12: `e13_margin_rule`, then `e13b_rarefaction`; `e15_reference_choice`, then `e15b_consensus_margin`, `e17_absolute_rule` and `e19_choice_discoveries`; `e18_build_refs` then `e18_reference_choice_chems` (Na and nitrides, ~15 min); `e16_history_replay`
    - `e14_model_error` downloads three small matminer datasets (~1.5 MB) to `data/raw/e14/`
 
 Each takes 1–65 min. Results go to `experiments/results/`; figures are the `*.png` files there.

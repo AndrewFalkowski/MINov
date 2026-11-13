@@ -1,0 +1,21 @@
+chem,check,metric,max_abs_score_diff,score,n,thr_ref,thr_engine,n_novel_ref,n_novel_engine,n_call_disagree
+na,ElMD formula matrix vs U_elmd.npy (500 rows x all U),elmd,0.0,,,,,,,
+na,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",elmd,2.2737367544323206e-13,MINov (exact),3000.0,62.23136885549096,62.231368855490956,1352.0,1352.0,0.0
+na,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",elmd,1.7763568394002505e-15,1-NN distance,3000.0,-1.9792381048202512,-1.9792381048202514,1618.0,1618.0,0.0
+na,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",elmd,1.3642420526593924e-12,KDE (median bw),3000.0,650.6393637149512,650.639363714951,699.0,699.0,0.0
+na,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",lostop,4.547473508864641e-13,MINov (exact),3000.0,65.98396301158817,65.98396301158817,279.0,279.0,0.0
+na,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",lostop,2.220446049250313e-16,1-NN distance,3000.0,-1.0914218187332154,-1.0914218187332154,381.0,381.0,0.0
+na,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",lostop,9.094947017729282e-13,KDE (median bw),3000.0,1413.0517123585246,1413.0517123585246,181.0,181.0,0.0
+na,"weighted engine vs expanded (923 entries, 342 formulas)",elmd,2.842170943040401e-14,MINov (exact),400.0,10.966592103829038,10.966592103829036,280.0,280.0,
+na,"weighted engine vs expanded (923 entries, 342 formulas)",elmd,0.0,1-NN distance,400.0,-2.3438735008239746,-2.3438735008239746,325.0,325.0,
+na,"weighted engine vs expanded (923 entries, 342 formulas)",elmd,1.5916157281026244e-12,KDE (median bw),400.0,138.5363792784518,138.5363792784518,136.0,136.0,
+nitride,ElMD formula matrix vs U_elmd.npy (500 rows x all U),elmd,0.0,,,,,,,
+nitride,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",elmd,4.263256414560601e-14,MINov (exact),770.0,45.455207452199254,45.45520745219925,51.0,51.0,0.0
+nitride,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",elmd,8.881784197001252e-16,1-NN distance,770.0,-2.171666741371155,-2.171666741371155,346.0,346.0,0.0
+nitride,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",elmd,2.2737367544323206e-13,KDE (median bw),770.0,334.8783394611199,334.8783394611199,19.0,19.0,0.0
+nitride,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",lostop,5.684341886080802e-14,MINov (exact),770.0,34.89024965064663,34.89024965064663,75.0,75.0,0.0
+nitride,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",lostop,2.220446049250313e-16,1-NN distance,770.0,-1.2332076370716094,-1.2332076370716094,111.0,111.0,0.0
+nitride,"A engine vs stored E12 full-reference (Y=2000, pool a_G)",lostop,2.2737367544323206e-13,KDE (median bw),770.0,429.5063376136485,429.50633761364855,66.0,66.0,0.0
+nitride,"weighted engine vs expanded (413 entries, 310 formulas)",elmd,2.842170943040401e-14,MINov (exact),400.0,18.094644977672694,18.094644977672694,60.0,60.0,
+nitride,"weighted engine vs expanded (413 entries, 310 formulas)",elmd,0.0,1-NN distance,400.0,-3.875,-3.875,96.0,96.0,
+nitride,"weighted engine vs expanded (413 entries, 310 formulas)",elmd,4.547473508864641e-13,KDE (median bw),400.0,151.62289059620502,151.62289059620505,12.0,12.0,
