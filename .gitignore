@@ -134,3 +134,7 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+# Large raw downloads for experiments (see experiments/fetch_data.py)
+data/raw/
+# Regenerable experiment caches
+experiments/results/*_cache.npz

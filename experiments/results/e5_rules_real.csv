@@ -1,0 +1,23 @@
+dataset,rule,q
+lostop,loo,0.5
+lostop,loo median,0.5
+lostop,loo D/2,0.5
+lostop,loo 2D,0.5
+lostop,rankmi,0.3
+lostop,ranknmi,0.02
+lostop,rankmi raw,0.31827376938637897
+lostop,ranknmi raw,0.024275118004045852
+lostop,stab95,0.2
+lostop,knee,0.02
+lostop,shpen,0.5
+elmd,loo,0.5
+elmd,loo median,0.5
+elmd,loo D/2,0.5
+elmd,loo 2D,0.003
+elmd,rankmi,0.3
+elmd,ranknmi,0.03
+elmd,rankmi raw,0.3310856372218476
+elmd,ranknmi raw,0.024949426837491573
+elmd,stab95,0.2
+elmd,knee,0.05
+elmd,shpen,0.5

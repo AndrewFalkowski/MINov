@@ -1,0 +1,56 @@
+t1 draws 126s
+t1: 2917 greedy jobs
+  t1 greedy 250/2917 598s
+  t1 greedy 500/2917 741s
+  t1 greedy 750/2917 798s
+  t1 greedy 1000/2917 842s
+  t1 greedy 1250/2917 855s
+  t1 greedy 1500/2917 1176s
+  t1 greedy 1750/2917 1563s
+  t1 greedy 2000/2917 1575s
+  t1 greedy 2250/2917 1586s
+  t1 greedy 2500/2917 1594s
+  t1 greedy 2750/2917 1602s
+   metric            score  n_cand  n_novel5  n_novel10  median_width  median_width_frac  max_width  n_tiers_comp  n_tiers_lead  n_decision_stable5  n_novel_jobs  median_removals_to_novel  censored_novel  median_removals_to_swap  frac_swap_le1  rho_swap_vs_gap  cert_fail
+0    elmd    MINov (exact)    3000      1465       1787       137.850           0.045950    380.550             5            50                2887          53.0                     127.0             0.0                      1.0         0.9075         0.420765        0.0
+1    elmd    1-NN distance    3000      1932       2212       327.250           0.109083   2469.075             1            29                2559          30.0                      35.5             0.0                      1.0         0.8625        -0.206411        0.0
+2    elmd  KDE (median bw)    3000       516        932        52.100           0.017367    370.650            19           151                2929          99.0                     517.0            14.0                      1.0         0.6000         0.632853        0.0
+3  lostop    MINov (exact)    3000       103        178       106.000           0.035333    545.650             4            54                2963         118.0                     407.0             9.0                      1.0         0.8775         0.463772        0.0
+4  lostop    1-NN distance    3000       432        731       237.275           0.079092   2629.400             1            36                2688          99.0                      42.0             1.0                      1.0         0.9450         0.075920        0.0
+5  lostop  KDE (median bw)    3000        50        201        59.150           0.019717    393.200             4            89                2980         118.0                     723.0            27.0                      1.0         0.7425         0.585425        0.0
+task 1 1610s
+fwd2000 draws 25s
+fwd2000: 4534 greedy jobs
+  fwd2000 greedy 250/4534 155s
+  fwd2000 greedy 500/4534 271s
+  fwd2000 greedy 750/4534 421s
+  fwd2000 greedy 1000/4534 460s
+  fwd2000 greedy 1250/4534 479s
+  fwd2000 greedy 1500/4534 515s
+  fwd2000 greedy 1750/4534 538s
+  fwd2000 greedy 2000/4534 556s
+  fwd2000 greedy 2250/4534 576s
+  fwd2000 greedy 2500/4534 635s
+  fwd2000 greedy 2750/4534 695s
+  fwd2000 greedy 3000/4534 761s
+  fwd2000 greedy 3250/4534 778s
+  fwd2000 greedy 3500/4534 781s
+  fwd2000 greedy 3750/4534 785s
+  fwd2000 greedy 4000/4534 788s
+  fwd2000 greedy 4250/4534 791s
+  fwd2000 greedy 4500/4534 794s
+fwd2000 795s
+fwd1990 draws 18s
+fwd1990: 1175 greedy jobs
+  fwd1990 greedy 250/1175 83s
+  fwd1990 greedy 500/1175 125s
+  fwd1990 greedy 750/1175 136s
+  fwd1990 greedy 1000/1175 153s
+fwd1990 167s
+fwd2005 draws 38s
+fwd2005: 1155 greedy jobs
+  fwd2005 greedy 250/1155 241s
+  fwd2005 greedy 500/1155 396s
+  fwd2005 greedy 750/1155 426s
+  fwd2005 greedy 1000/1155 569s
+fwd2005 653s

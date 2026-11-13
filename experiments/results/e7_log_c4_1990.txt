@@ -1,0 +1,3 @@
+c4 Y=1990: pi0 logit a=-0.64 b=0.71, 29857 analogues of 834 formulas, hit rate 0.095
+c4 Y=1990: 2810 empirical single-substitution LoStOP pairs, mean w 0.507
+c4 Y=1990: 382s
