@@ -19,11 +19,12 @@ h1{font-size:1.7rem}h2{margin-top:2.4rem;border-bottom:1px solid #e6e5e0;padding
 <li><strong>Analogue vacancy characterises how a generator's novelty differs.</strong> GNoME candidates sit in substitution families that experiment has not explored. They are about 100× more "vacant" than real later discoveries (AUC 0.96 vs MP). This holds with either reference, but vacancy does not predict where experiments go next.</li>
 </ol>
 <p>A side result on how discovery actually proceeded (E16): each year's new compounds sat slightly closer to their nearest known neighbour than the rest of what was eventually found (1-NN percentile 45–48, 50 = random), but at average global density under MINov (48–54). The field filled in locally without avoiding sparse regions globally, and found new stoichiometry types more slowly than a random order of the same compounds.</p>
-<p>Five ideas failed and are dropped:
+<p>Six ideas failed and are dropped:
 - <strong>Plausibility-weighted de-novelling ("P(stays novel)"):</strong> no better than the plain density margin.
 - <strong>Removal fragility as a forecast:</strong> it did not predict which ranks actually changed, because the future adds materials, and a removal analysis cannot see that direction.
 - <strong>Abramson adaptive bandwidth:</strong> it moved MINov along the existing trade-off rather than past it, and made ElMD calls flip about 4× more often.
 - <strong>Threshold rarefaction as an early warning:</strong> thinning the reference at random just scales sum-type thresholds with size, so it cannot see the sparse regions later additions fill. Reference size alone flags the failing cells as well (E13b).
+- <strong>An absolute novelty threshold ("fewer than k known analogues"):</strong> no k makes calls robust to the choice of reference, and it is less stable under growth than the relative rule (E17). What changes between references is the definition of "known", which no calling rule removes; ranking within the candidate pool is the more robust option.
 - <strong>Novelty as a model-error signal beyond ensemble spread:</strong> for random forests on three property datasets, novelty added at most +0.13 partial correlation with absolute error beyond the tree spread, never improved detection of the worst 10% of errors, and only slightly lowered interval coverage in the most novel tercile (E14).</p>
 <h2>Data</h2>
 <ul>
@@ -182,6 +183,7 @@ h1{font-size:1.7rem}h2{margin-top:2.4rem;border-bottom:1px solid #e6e5e0;padding
 <li><strong>Why the threshold moves:</strong> "novel" means "less dense than 95% of the reference's own members". The median GNoME candidate sits at the 5.7th percentile under A (ElMD), so any change in who the reference members are moves many candidates across the line.</li>
 <li><strong>Consensus:</strong> of the 50.6% of candidates MINov calls novel under A (ElMD), only 6.5% are novel under all four references. Calling the top 10% of the candidate pool novel instead (no reference threshold) keeps 21% of MINov's set across all references, 72% of KDE's and 7% of 1-NN's.</li>
 <li><strong>Margin band (E13):</strong> the growth-calibrated band contains only 7–9% of MINov's ElMD call changes from swapping references; covering 90% of them would need a band of 4–14 points, i.e. nearly every novel call.</li>
+<li><strong>A fixed threshold does not help (E17):</strong> calling a candidate novel when its MINov density is below a fixed k ("fewer than k effective known analogues") removes the threshold's movement but not the content effect. Under B or C candidates gain real neighbours, so at any k that calls ≥ 10% of GNoME novel nearly all of those calls are lost (MINov ElMD, A's threshold frozen as k: 49.9% / 48.8% changed vs 34.8% / 41.2% for the relative rule). It also makes growth flips 1.5–7× larger for MINov and KDE. At k ≤ 5 almost nothing is novel (a typical candidate has ~80 effective ElMD neighbours and ~330 LoStOP ones within the median cutoff).</li>
 <li><strong>Structure is more robust:</strong> under LoStOP, MINov changes 1.9–2.2% of calls (1-NN 13–14%, KDE 1.3–1.4%), though few candidates are structurally novel to begin with (3.4% under A).</li>
 </ul>
 <h3>6. A margin band for reliable calls (E13, E13b)</h3>
@@ -395,7 +397,7 @@ h1{font-size:1.7rem}h2{margin-top:2.4rem;border-bottom:1px solid #e6e5e0;padding
 <li>on the original data: <code>e1_reference_stability</code>, <code>e1b_stability_sensitivity</code>, <code>e2_denovelling</code>, <code>e3_coverage</code>, <code>e4_rank_uncertainty</code>, <code>e5_kernel_shape</code>, <code>e6_analogue_vacancy</code></li>
 <li>on the rebuilt data: <code>e7_fragility_forward</code>, <code>e8_vacancy_forward</code>, <code>e9_two_scale_transfer</code>, <code>e10_exact_match</code>, <code>e11_abramson</code></li>
 <li>new chemistries: <code>build_chem_sets.py</code> builds the Na and ternary-nitride sets in <code>data/raw/processed_na/</code> and <code>processed_nitride/</code> (~25 min), then <code>e12_new_chemistries</code> runs the forward test on them</li>
-<li>after E7 and E12: <code>e13_margin_rule</code>, then <code>e13b_rarefaction</code>; <code>e15_reference_choice</code>, then <code>e15b_consensus_margin</code>; <code>e16_history_replay</code></li>
+<li>after E7 and E12: <code>e13_margin_rule</code>, then <code>e13b_rarefaction</code>; <code>e15_reference_choice</code>, then <code>e15b_consensus_margin</code> and <code>e17_absolute_rule</code>; <code>e16_history_replay</code></li>
 <li><code>e14_model_error</code> downloads three small matminer datasets (~1.5 MB) to <code>data/raw/e14/</code></li>
 </ol>
 <p>Each takes 1–65 min. Results go to <code>experiments/results/</code>; figures are the <code>*.png</code> files there.</p>

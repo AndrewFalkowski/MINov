@@ -19,11 +19,12 @@ Novelty is always relative to a reference set, and reference sets are incomplete
 
 A side result on how discovery actually proceeded (E16): each year's new compounds sat slightly closer to their nearest known neighbour than the rest of what was eventually found (1-NN percentile 45–48, 50 = random), but at average global density under MINov (48–54). The field filled in locally without avoiding sparse regions globally, and found new stoichiometry types more slowly than a random order of the same compounds.
 
-Five ideas failed and are dropped:
+Six ideas failed and are dropped:
 - **Plausibility-weighted de-novelling ("P(stays novel)"):** no better than the plain density margin.
 - **Removal fragility as a forecast:** it did not predict which ranks actually changed, because the future adds materials, and a removal analysis cannot see that direction.
 - **Abramson adaptive bandwidth:** it moved MINov along the existing trade-off rather than past it, and made ElMD calls flip about 4× more often.
 - **Threshold rarefaction as an early warning:** thinning the reference at random just scales sum-type thresholds with size, so it cannot see the sparse regions later additions fill. Reference size alone flags the failing cells as well (E13b).
+- **An absolute novelty threshold ("fewer than k known analogues"):** no k makes calls robust to the choice of reference, and it is less stable under growth than the relative rule (E17). What changes between references is the definition of "known", which no calling rule removes; ranking within the candidate pool is the more robust option.
 - **Novelty as a model-error signal beyond ensemble spread:** for random forests on three property datasets, novelty added at most +0.13 partial correlation with absolute error beyond the tree spread, never improved detection of the worst 10% of errors, and only slightly lowered interval coverage in the most novel tercile (E14).
 
 ## Data
@@ -144,6 +145,7 @@ The Li candidates (3,000 GNoME) were scored against four references: A, experime
 - **Why the threshold moves:** "novel" means "less dense than 95% of the reference's own members". The median GNoME candidate sits at the 5.7th percentile under A (ElMD), so any change in who the reference members are moves many candidates across the line.
 - **Consensus:** of the 50.6% of candidates MINov calls novel under A (ElMD), only 6.5% are novel under all four references. Calling the top 10% of the candidate pool novel instead (no reference threshold) keeps 21% of MINov's set across all references, 72% of KDE's and 7% of 1-NN's.
 - **Margin band (E13):** the growth-calibrated band contains only 7–9% of MINov's ElMD call changes from swapping references; covering 90% of them would need a band of 4–14 points, i.e. nearly every novel call.
+- **A fixed threshold does not help (E17):** calling a candidate novel when its MINov density is below a fixed k ("fewer than k effective known analogues") removes the threshold's movement but not the content effect. Under B or C candidates gain real neighbours, so at any k that calls ≥ 10% of GNoME novel nearly all of those calls are lost (MINov ElMD, A's threshold frozen as k: 49.9% / 48.8% changed vs 34.8% / 41.2% for the relative rule). It also makes growth flips 1.5–7× larger for MINov and KDE. At k ≤ 5 almost nothing is novel (a typical candidate has ~80 effective ElMD neighbours and ~330 LoStOP ones within the median cutoff).
 - **Structure is more robust:** under LoStOP, MINov changes 1.9–2.2% of calls (1-NN 13–14%, KDE 1.3–1.4%), though few candidates are structurally novel to begin with (3.4% under A).
 
 ### 6. A margin band for reliable calls (E13, E13b)
@@ -249,7 +251,7 @@ No work was found that reports removal or addition fragility, rank intervals, ma
    - on the original data: `e1_reference_stability`, `e1b_stability_sensitivity`, `e2_denovelling`, `e3_coverage`, `e4_rank_uncertainty`, `e5_kernel_shape`, `e6_analogue_vacancy`
    - on the rebuilt data: `e7_fragility_forward`, `e8_vacancy_forward`, `e9_two_scale_transfer`, `e10_exact_match`, `e11_abramson`
    - new chemistries: `build_chem_sets.py` builds the Na and ternary-nitride sets in `data/raw/processed_na/` and `processed_nitride/` (~25 min), then `e12_new_chemistries` runs the forward test on them
-   - after E7 and E12: `e13_margin_rule`, then `e13b_rarefaction`; `e15_reference_choice`, then `e15b_consensus_margin`; `e16_history_replay`
+   - after E7 and E12: `e13_margin_rule`, then `e13b_rarefaction`; `e15_reference_choice`, then `e15b_consensus_margin` and `e17_absolute_rule`; `e16_history_replay`
    - `e14_model_error` downloads three small matminer datasets (~1.5 MB) to `data/raw/e14/`
 
 Each takes 1–65 min. Results go to `experiments/results/`; figures are the `*.png` files there.
