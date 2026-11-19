@@ -24,7 +24,7 @@ Environments are managed with [uv](https://docs.astral.sh/uv/). To install only 
 
 ### Dependencies
 
-All required libraries (numpy, pandas, scipy, matminer, pymatgen, plus scikit-learn, matplotlib and Jupyter for the notebooks) are pinned in `pyproject.toml` to the versions used for the published results, and fully locked in `uv.lock`. ElMD distances are computed directly on the modified Pettifor scale (Glawe et al., 2016) and match the [ElMD](https://github.com/lrcfmd/ElMD) package exactly.
+All required libraries (numpy, pandas, scipy, matminer, pymatgen, average-minimum-distance, plus scikit-learn, matplotlib and Jupyter for the notebooks) are pinned in `pyproject.toml` to the versions used for the published results, and fully locked in `uv.lock`. ElMD distances are computed directly on the modified Pettifor scale (Glawe et al., 2016) and match the [ElMD](https://github.com/lrcfmd/ElMD) package exactly.
 
 ## Usage
 
@@ -76,6 +76,19 @@ new_to_reference = get_elmd_dm(new_formulas, reference=reference_formulas)
 reference_features = get_lostop_features(reference_structures)  # compute once, np.save to reuse
 new_to_reference = get_lostop_dm(new_structures, reference=reference_features)
 ```
+
+### Chemistry-free structure distance (PDD)
+
+`compute_metrics=["pdd"]` (or `get_pdd_dm`) adds a second structure distance: the earth mover's distance between Pointwise Distance Distributions (Widdowson & Kurlin, NeurIPS 2022), computed with the [`average-minimum-distance`](https://github.com/dwiddo/average-minimum-distance) package. Atoms are treated as identical points and each structure is rescaled to one atom per unit volume, so the distance ignores chemistry and lattice scale: NaCl and KCl, or any two ideal cubic perovskites, are exactly 0 apart. It does not depend on the choice of unit cell and changes smoothly under strain. LoStOP's CrystalNN neighbour finding uses electronegativities and atomic radii, so some chemistry enters it.
+
+```python
+from MINOV.distance import get_pdd_dm, get_pdd_features
+
+reference_pdds = get_pdd_features(reference_structures)  # list of arrays; pickle to reuse
+new_to_reference = get_pdd_dm(new_structures, reference=reference_pdds, n_jobs=-1)
+```
+
+`k` (default 100) sets how many neighbours each atom's row holds. Pass `unit_density=False` to keep lattice scale.
 
 ### Exact and grid methods
 
