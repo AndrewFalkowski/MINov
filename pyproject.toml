@@ -16,6 +16,7 @@ dependencies = [
     "spglib==2.6.0",
     "monty==2025.3.3",
     "matminer==0.9.3",
+    "average-minimum-distance==1.6.1",
 ]
 
 [dependency-groups]

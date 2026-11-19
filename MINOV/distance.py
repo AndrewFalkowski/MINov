@@ -128,6 +128,94 @@ def get_lostop_dm(structures: list, reference=None, precomputed: str = None):
     return cdist(features, reference, metric="euclidean")
 
 
+# PDD Distance #########################################################################
+
+# Pointwise Distance Distributions (Widdowson & Kurlin, "Resolving the data ambiguity
+# for periodic crystals", NeurIPS 2022), computed with the `average-minimum-distance`
+# package. Each atom gets a row of its sorted distances to its k nearest neighbours in
+# the infinite crystal; rows are weighted by atom fraction, and two crystals are
+# compared by the earth mover's distance between their rows. The distance is invariant
+# to the choice of unit cell, rotation and translation, and continuous under atomic
+# displacements. Atoms are treated as identical points, so it ignores chemistry.
+
+
+def _pdd_periodic_set(structure, unit_density=True):
+    import amd
+
+    if unit_density:
+        # one atom per unit volume, so lattice scale (a chemical effect) drops out
+        structure = structure.copy()
+        structure.scale_lattice(len(structure))
+    return amd.PeriodicSet(motif=structure.cart_coords, cell=structure.lattice.matrix)
+
+
+def get_pdd_features(structures, k=100, unit_density=True):
+    """
+    Calculate the Pointwise Distance Distribution (PDD) of each structure.
+
+    PDDs have one row per distinct atomic environment, so they differ in shape between
+    structures. Pickle the list (or save it with np.save(..., allow_pickle=True)) to
+    reuse a reference set's PDDs; see `get_pdd_dm(..., reference=...)`.
+
+    Args:
+        structures: List of pymatgen Structure objects
+        k (int): Number of nearest neighbours per atom
+        unit_density (bool): Rescale each structure to one atom per unit volume before
+            computing distances, so structures that differ only in lattice scale (for
+            example NaCl and KCl) are identical
+
+    Returns:
+        list of numpy.ndarray: One PDD per structure; column 0 holds row weights
+    """
+    import amd
+
+    return [
+        amd.PDD(_pdd_periodic_set(structure, unit_density), k)
+        for structure in tqdm(structures, desc="Generating PDDs")
+    ]
+
+
+def _as_pdds(items, k, unit_density):
+    items = list(items)
+    if items and isinstance(items[0], np.ndarray):
+        return items
+    return get_pdd_features(items, k=k, unit_density=unit_density)
+
+
+def get_pdd_dm(structures, reference=None, k=100, unit_density=True, n_jobs=None):
+    """
+    Calculate the chemistry-free PDD earth mover's distance matrix.
+
+    Args:
+        structures: List of pymatgen Structure objects, or their PDDs from
+            `get_pdd_features`
+        reference: Optional reference set, as Structures or PDDs. When given, returns
+            distances from each structure to each reference structure.
+        k (int): Number of nearest neighbours per atom. Must match any precomputed PDDs.
+        unit_density (bool): Rescale to one atom per unit volume (see
+            `get_pdd_features`). Must match any precomputed PDDs.
+        n_jobs (int): Parallel workers for the pairwise distances (None for serial,
+            -1 for all cores)
+
+    Returns:
+        numpy.ndarray: (n, n) distance matrix, or (n, n_reference) if `reference` is given
+    """
+    import amd
+    from joblib import cpu_count
+
+    if n_jobs is not None and n_jobs < 0:
+        n_jobs = max(1, cpu_count() + 1 + n_jobs)
+    # loky, like the LoStOP featurizer: amd's default multiprocessing backend fails
+    # in scripts without a __main__ guard on macOS
+    parallel = dict(n_jobs=n_jobs, backend="loky")
+
+    print("\nCalculating PDD distance matrix...")
+    pdds = _as_pdds(structures, k, unit_density)
+    if reference is None:
+        return squareform(amd.PDD_pdist(pdds, **parallel))
+    return amd.PDD_cdist(pdds, _as_pdds(reference, k, unit_density), **parallel)
+
+
 # ElMD Distance ########################################################################
 
 # Modified Pettifor scale: elements ordered by chemical similarity.

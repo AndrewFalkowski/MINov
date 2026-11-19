@@ -1,4 +1,4 @@
-from MINOV.distance import get_lostop_dm, get_elmd_dm
+from MINOV.distance import get_lostop_dm, get_pdd_dm, get_elmd_dm
 from MINOV.density import MIProfile
 import numpy as np
 import pandas as pd
@@ -19,7 +19,8 @@ def compute_MI_novelty(
 
     Args:
         data (pd.DataFrame): DataFrame containing structures and/or formulas
-        compute_metrics (list): List of metric names to compute (e.g., ["lostop", "elmd"])
+        compute_metrics (list): List of metric names to compute, from "lostop", "pdd"
+            (chemistry-free structure) and "elmd" (composition)
         precomputed_metrics (dict): Dict mapping metric names to file names
             e.g., {"lostop": "lostop_dm.npy"} - will be loaded from data_dir
         external_metrics (dict): Dict mapping custom metric names to distance matrices
@@ -55,11 +56,14 @@ def compute_MI_novelty(
         for metric_name in compute_metrics:
             if metric_name == "lostop":
                 dm = get_lostop_dm(data["structure"].values)
+            elif metric_name == "pdd":
+                dm = get_pdd_dm(data["structure"].values)
             elif metric_name == "elmd":
                 dm = get_elmd_dm(data["formula"].values)
             else:
                 raise ValueError(
-                    f"Unknown metric: '{metric_name}' -> Choose from 'lostop' or 'elmd'."
+                    f"Unknown metric: '{metric_name}' -> Choose from 'lostop', 'pdd' "
+                    "or 'elmd'."
                 )
 
             distance_matrices[metric_name] = dm
